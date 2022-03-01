@@ -4,11 +4,55 @@ import java.util.*
 fun main(){
 
 
-    for(i in 1..5){
-        login()
-    }
-//    signup();
-//    forget();
+//    for(i in 1..5){
+//        login()
+//    }
+
+    studentRegister();
+}
+
+fun studentRegister() {
+
+    println("Student Registration ")
+    val obj = Scanner(System.`in`)
+    print("\nEnter name : ")
+    val name : String = obj.nextLine();
+    print("\nEnter age : ")
+    val age : Int = obj.nextInt()
+    print("\nEnter Secondary Percentage : ")
+    val secondaryPercentage : Float = obj.nextFloat()
+    print("\nEnter Branch Name you want : ")
+    obj.nextLine()
+    val branch : String = obj.nextLine()
+    print("\nAre you physically disabled (Y/N) : ")
+    val disability : Boolean =  checkDisability(obj)
+    previewDetails(name,age,secondaryPercentage,branch,disability);
+
+
+}
+
+fun previewDetails(name: String, age: Int, secondaryPercentage: Float, branch: String, disability: Boolean) {
+    println("-------------------------------------------------------------------------------------------------")
+    println("Student Information Preview")
+    println("-------------------------------------------------------------------------------------------------")
+    println("Name is ${name}, age is ${age}")
+    println("Your secondary percentage is ${secondaryPercentage}%")
+    println("And you want ${branch} branch")
+    println("Do you have any physical disablity ${disabilityMessage(disability)}")
+    println("-------------------------------------------------------------------------------------------------")
+
+}
+
+fun disabilityMessage(disability: Boolean): String {
+    if(disability)
+        return "Yes"
+    else return "No"
+}
+
+fun checkDisability(obj: Scanner): Boolean {
+
+    val answer : String = obj.nextLine();
+    return answer.equals("Y") or answer.equals("y") or answer.equals("Yes") or answer.equals("yes")
 }
 
 fun login() {
