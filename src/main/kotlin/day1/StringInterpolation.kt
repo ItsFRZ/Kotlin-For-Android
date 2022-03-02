@@ -13,6 +13,8 @@ fun main(){
 
     SumOfNumbers(5,7)
 
+    println(fullName.substring(0,6))
+
 }
 
 fun SumOfNumbers(a: Int, b: Int) {
