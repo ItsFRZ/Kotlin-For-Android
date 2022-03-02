@@ -24,10 +24,14 @@ fun main(){
 
 //    loopRange()
 
-    val arr = arrayOf<String>("Crab","Crop","Cringe","Roast")
-    arrayReverseTraversal(arr)
-    arrayTraversal(arr)
-    extraUnusedLoops()
+//    val arr = arrayOf<String>("Crab","Crop","Cringe","Roast")
+//    arrayReverseTraversal(arr)
+//    arrayTraversal(arr)
+//    extraUnusedLoops()
+
+
+//    variable argument
+    countAndPrint(1,2,3,4,5,6,)
 
 
 }
@@ -86,3 +90,13 @@ fun extraUnusedLoops(){
 
 
 }
+fun countAndPrint(first : Int,second : Int,vararg number : Int){
+    println("vararg size ${number.size}")
+    println(first)
+    println(second)
+    for (i in 0..(number.size-1))
+        print("${number[i]} ")
+    println()
+}
+
+
