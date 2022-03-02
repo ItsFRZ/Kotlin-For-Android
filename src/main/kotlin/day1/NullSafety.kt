@@ -14,10 +14,6 @@ fun main(){
         print("Name length : ${name?.length ?: 0}")
 
 
-
-
-
-
 }
 
 
