@@ -15,6 +15,6 @@ fun main(){
 
 
     println(obj1.toString())
-    println(obj2.toString())
+    println(obj2)
 
 }
