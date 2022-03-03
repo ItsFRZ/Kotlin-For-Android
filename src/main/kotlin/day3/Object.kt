@@ -18,9 +18,9 @@ class H2O(){
     companion object {
 
         const val molecularStructure : String = "H2O"
-
+        val obj =  H2O()
         fun callMe(){
-            H2O()
+
             println("Scientific name of H2O is Water")
        }
 
@@ -40,6 +40,7 @@ fun main(){
 
     H2O.callMe()
     println(H2O.molecularStructure)
+
 
 
 }
