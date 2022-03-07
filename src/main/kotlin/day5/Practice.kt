@@ -47,6 +47,35 @@ fun chooseBike(){
 
 fun main() {
 
-    chooseBike()
+//    chooseBike()
+
+
+    val bikeOne = SuperBike("Ducati","Red")
 
 }
+
+
+
+class SuperBike(var name : String,var color : String){
+    private var bikeSold : Int = 0;
+    fun info() : Unit{
+        println("$name and color is $color")
+    }
+
+
+
+
+
+
+}
+
+
+
+infix fun SuperBike.changeColor(customColor : String) {
+    color = customColor
+}
+
+
+
+
+
