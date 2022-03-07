@@ -1,6 +1,6 @@
-package day2.Kotlin
+package day2.kotlin
 
-import day2.Java.*
+import day2.java.*
 
 class MyTeacher(var myTeacherName: String,var myTeacherId: String,var myTeacherStudents: Array<Student>) : Teacher(myTeacherName,myTeacherId,myTeacherStudents){
     fun displayTeacherStudentInfo() {

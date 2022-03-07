@@ -1,6 +1,6 @@
-package day2.Java;
+package day2.java;
 
-import day2.Kotlin.*;
+import day2.kotlin.*;
 
 public class Main {
 

@@ -1,4 +1,4 @@
-package day2.Java;
+package day2.java;
 
 public class Teacher {
 
