@@ -1,4 +1,4 @@
-package day6.HigherLevelFunctions
+package day6.higherlevelfunctions
 
 
 

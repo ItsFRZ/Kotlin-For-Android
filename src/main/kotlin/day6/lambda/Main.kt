@@ -1,4 +1,4 @@
-package day6.Lambda
+package day6.lambda
 
 
 class Program{

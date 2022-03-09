@@ -1,4 +1,4 @@
-package day6
+package day6.companion
 
 fun main(){
     val user1 : Website = Website()
