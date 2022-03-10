@@ -8,10 +8,13 @@ fun main(){
 ////    Looping
 //
     val names  = arrayOf("Rob","Ron","Ram","Ravi",12,12.3F,323233.3232323)
-//    // Similar like enhanced for loop in java
-//    for (i in names)
-//        println(i)
-//
+
+
+
+    // Similar like enhanced for loop in java
+    for (i in names.indices)
+        println(i)
+
 //    // Similar like noraml for loop in java
 //    for(i in names.indices){
 //        print("${names[i]} ")
@@ -24,10 +27,10 @@ fun main(){
 
 //    loopRange()
 
-//    val arr = arrayOf<String>("Crab","Crop","Cringe","Roast")
-//    arrayReverseTraversal(arr)
-//    arrayTraversal(arr)
-//    extraUnusedLoops()
+    val arr = arrayOf<String>("Crab","Crop","Cringe","Roast")
+    arrayReverseTraversal(arr)
+    arrayTraversal(arr)
+    extraUnusedLoops()
 
 
 //    variable argument

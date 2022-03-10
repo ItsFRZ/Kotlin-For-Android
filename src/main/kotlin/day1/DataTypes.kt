@@ -11,7 +11,12 @@ fun main(){
     studentRegister();
 }
 
+
+
 fun studentRegister() {
+
+
+    val fname : String;
 
     println("Student Registration ")
     val obj = Scanner(System.`in`)
@@ -28,8 +33,13 @@ fun studentRegister() {
     val disability : Boolean =  checkDisability(obj)
     previewDetails(name,age,secondaryPercentage,branch,disability);
 
+    fname = "Faraz"
+
+
 
 }
+
+
 
 fun previewDetails(name: String, age: Int, secondaryPercentage: Float, branch: String, disability: Boolean) {
     println("-------------------------------------------------------------------------------------------------")

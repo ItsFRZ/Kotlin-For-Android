@@ -33,15 +33,29 @@ fun main(){
 
 
 fun whenCondition() : Unit{
-    val rating = 4
-    val result : String = when(rating){
-        5 -> {
-            "High"
+    val rating : Boolean?  = false
+    val result : Boolean = when(rating){
+//        5 -> {
+////            "High"
+//            true
+//        }
+//        4,3 -> {
+////            "Good"
+//        }
+//        2,1 -> {
+////            "Poor"
+//        }
+//        else -> {
+//
+//        }
+        true -> {
+            false
         }
-        4,3 -> "Good"
-        2,1 -> "Poor"
-        else -> {
-            "No rating value"
+        false -> {
+            true
+        }
+        null -> {
+            false
         }
 
     }

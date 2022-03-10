@@ -1,6 +1,9 @@
 package day2
 
-fun main(){
+
+
+
+fun main() {
 
 //    println(functionName("saveRelationalData"))
 //    helloWorld()
@@ -31,7 +34,7 @@ fun printUserName(firstName : String,lastName : String = "Doe") : String{
 }
 
 //Named Argument
-fun volume(boxName : String,length : Int,width : Int,height : Int) : Int{
+fun volume(boxName : String,length : Int,width : Int,height : Int) : Any{
     print("$boxName volume is : ")
     return length*width*height;
 }

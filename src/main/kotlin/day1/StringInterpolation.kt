@@ -8,7 +8,7 @@ fun main(){
     val firstname : String = getFirstName(scn)
     val lastname : String = getLastName(scn)
     val nameLength : Int = getNameLength(firstname,lastname);
-    val fullName : String = "${firstname} ${lastname}";
+    val fullName : String = "$firstname ${lastname}";
     println("Full Name is ${fullName} and length ${nameLength}")
 
     SumOfNumbers(5,7)
