@@ -20,7 +20,12 @@ class ThreadRunner : Thread(){
 }
 
 fun main() {
-    val trunner = ThreadRunner()
-    Thread(trunner).start()
-    Thread(trunner).start()
+//    val trunner = ThreadRunner()
+//    Thread(trunner).start()
+//    Thread(trunner).start()
+
+    
+    
+    
+
 }
