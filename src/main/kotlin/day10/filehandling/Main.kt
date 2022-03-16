@@ -12,9 +12,9 @@ fun main() {
 //    var file : File = createFile("${PATH}Faraz.txt")
 //    println(file)
 
-//    val data : String = "Hello World this is Faraz Sheikh"
-//    writeData("${PATH}Faraz.txt",data);
-    readData("${PATH}Faraz.txt")
+    val data : String = "Hello World this is Faraz Sheikh Anna\n"
+    writeData("${PATH}Faraz.txt",data);
+//    readData("${PATH}Faraz.txt")
 }
 
 

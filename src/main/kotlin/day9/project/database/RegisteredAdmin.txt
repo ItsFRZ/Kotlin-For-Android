@@ -1,0 +1,2 @@
+Faraz,faraz@gmail.com,123456
+Faisal,faisal@gmail.com,1234567

@@ -1,22 +1,44 @@
 package day9.project.model
 
-class User(username : String,password : String,email : String) {
 
-    var username : String = ""
-    var password : String = ""
-    var email : String = ""
-    var isAdmin : Boolean = false
-    var isRestaurantOwner : Boolean = false
+interface People{}
 
-    init{
-        this.username = username
-        this.password = password
-        this.email = email
-        this.isAdmin = false
-        this.isRestaurantOwner = false
-    }
+abstract class User : People{
+
+    private var _username: String = ""
+            var username : String
+                get() = _username
+                set(value){
+                    _username = value
+                }
 
 
+    private var _emailId : String = "";
+            var emailId : String
+                get() = _emailId
+                set(value){
+                    _emailId = value
+                }
 
+    private var _password : String = "";
+            var password : String
+                get() = _password
+                set(value){
+                    _password = value
+                }
+
+    private var _isAdmin : Boolean = false
+            var isAdmin : Boolean
+                get() = _isAdmin
+                set(value){
+                    _isAdmin = value
+                }
+
+    private var _isSeller : Boolean = false
+            var isSeller : Boolean
+                get() = _isSeller
+                set(value){
+                    _isSeller = value
+                }
 
 }

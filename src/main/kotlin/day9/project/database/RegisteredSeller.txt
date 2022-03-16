@@ -1,0 +1,2 @@
+DemoRestaurant,karims@gmail.com,1234567
+SamirEnclave,samirhotels@gmail.com,samir123456
