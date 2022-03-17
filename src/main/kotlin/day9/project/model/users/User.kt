@@ -1,9 +1,9 @@
-package day9.project.model
+package day9.project.model.users
 
 
 interface People{}
 
-abstract class User : People{
+abstract class User : People {
 
     private var _username: String = ""
             var username : String

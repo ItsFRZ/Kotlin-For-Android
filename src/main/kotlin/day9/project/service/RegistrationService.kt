@@ -1,9 +1,9 @@
 package day9.project.service
 
 import day9.project.handler.registration.SaveUser
-import day9.project.model.Admin
-import day9.project.model.Customer
-import day9.project.model.Seller
+import day9.project.model.users.Admin
+import day9.project.model.users.Customer
+import day9.project.model.users.Seller
 
 class CustomerRegistrationService{
     fun saveDataToFile(customer: Customer) {

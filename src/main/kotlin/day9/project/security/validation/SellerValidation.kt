@@ -1,6 +1,6 @@
 package day9.project.security.validation
 
-import day9.project.model.Seller
+import day9.project.model.users.Seller
 
 class SellerValidation : Validation(){
 

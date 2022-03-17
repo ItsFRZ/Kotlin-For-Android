@@ -1,8 +1,8 @@
 package day9.project.handler.registration
 
-import day9.project.model.Admin
-import day9.project.model.Customer
-import day9.project.model.Seller
+import day9.project.model.users.Admin
+import day9.project.model.users.Customer
+import day9.project.model.users.Seller
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileWriter

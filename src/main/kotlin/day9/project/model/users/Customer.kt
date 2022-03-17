@@ -1,4 +1,4 @@
-package day9.project.model
+package day9.project.model.users
 
 class Customer(username : String,emailId : String,password : String) : User() {
     var customerID : Int = 0

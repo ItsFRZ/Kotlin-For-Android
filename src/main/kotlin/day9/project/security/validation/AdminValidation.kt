@@ -1,6 +1,6 @@
 package day9.project.security.validation
 
-import day9.project.model.Admin
+import day9.project.model.users.Admin
 
 class AdminValidation : Validation(){
 

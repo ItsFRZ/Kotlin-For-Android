@@ -1,8 +1,8 @@
 package day9.project.security.auth
 
-import day9.project.model.Admin
-import day9.project.model.Customer
-import day9.project.model.Seller
+import day9.project.model.users.Admin
+import day9.project.model.users.Customer
+import day9.project.model.users.Seller
 import day9.project.security.validation.AdminValidation
 import day9.project.security.validation.CustomerValidation
 import day9.project.security.validation.SellerValidation

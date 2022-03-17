@@ -1,4 +1,4 @@
-package day9.project.model
+package day9.project.model.users
 
 class Admin(username : String,emailId : String,password : String) : User() {
 
