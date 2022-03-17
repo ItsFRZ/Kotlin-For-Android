@@ -6,12 +6,9 @@ import day9.project.model.Customer
 import day9.project.model.Seller
 
 class CustomerRegistrationService{
-
     fun saveDataToFile(customer: Customer) {
         SaveUser().saveCustomer(customer)
     }
-
-
 }
 
 class AdminRegistrationService{

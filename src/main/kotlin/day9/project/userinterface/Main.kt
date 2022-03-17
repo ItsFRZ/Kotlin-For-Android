@@ -1,16 +1,27 @@
 package day9.project.userinterface
 
+import day9.project.controller.AuthenticateRegisteredAdmin
+import day9.project.controller.AuthenticateRegisteredSeller
+import day9.project.controller.AuthenticateRegisteredUser
 import day9.project.controller.PersistRegisteredUser
 import day9.project.model.Admin
 import day9.project.model.Customer
 import day9.project.model.Seller
-import day9.project.security.auth.AdminSignup
-import day9.project.security.auth.CustomerSignup
-import day9.project.security.auth.SellerSignup
-import day9.project.security.validation.AdminRegistrationValidation
+import day9.project.security.auth.*
+import day9.project.security.validation.AdminValidation
 
-import day9.project.security.validation.CustomerRegistrationValidation
-import day9.project.security.validation.SellerRegistrationValidation
+import day9.project.security.validation.CustomerValidation
+import day9.project.security.validation.SellerValidation
+
+
+
+var isCustomerLoggedIn = false
+var isSellerLoggedIn = false
+var isAdminLoggedIn = false
+
+private val customerValidation = CustomerValidation()
+private val adminValidation = AdminValidation()
+private val sellerValidation = SellerValidation()
 
 fun main() {
 
@@ -36,20 +47,155 @@ fun run(){
 
     when(input){
         1 -> {
-
+            loginType();
         }
         2 -> {
             registrationType();
         }
         else -> {
-            println("Do you want to continue (Y/N)")
-            val cont = readLine().toString()
-            if(continueCheck(cont))
-                run()
+            continueRun();
         }
     }
 
+    continueRun()
 
+}
+
+fun continueRun() {
+    println("Do you want to continue (Y/N)")
+    val cont = readLine().toString()
+    if(continueCheck(cont))
+        run()
+}
+
+fun loginType() {
+
+    println("Press 1 For Customer")
+    println("Press 2 For Admin")
+    println("Press 3 For Restaurant Owner")
+    println("Press any other number to Back")
+    var input : Int? = null
+    try{
+        input = readLine()?.toInt() ?: 3
+    }catch(e : Exception){
+        println(e)
+        println("Do you want to continue (Y/N)")
+        val cont = readLine().toString()
+        if(continueCheck(cont))
+            loginType()
+    }
+
+    when(input){
+        1 -> {
+            customerLogin()
+        }
+        2 -> {
+            adminLogin()
+        }
+        3 -> {
+            sellerLogin()
+        }
+        else -> {
+            return
+        }
+    }
+
+}
+
+fun sellerLogin() {
+    println("Enter your registered Username")
+    val username  = readLine().toString()
+    println("Enter your registered Password")
+    val password  = readLine().toString()
+
+    val sellerLogin = SellerLogin(username,password);
+    if(sellerLogin.login(sellerValidation)){
+        val auth = AuthenticateRegisteredSeller(username,password);
+        if(auth.checkSellerCredentials())
+        {
+            isSellerLoggedIn = true
+            println("Login Successfull :)")
+        }else
+        {
+            println("Invalid Credentials")
+        }
+    }else{
+        sellerLoginContinueMessage()
+    }
+}
+
+fun sellerLoginContinueMessage() {
+    println("Do you want to continue (Y/N)")
+    val cont = readLine().toString()
+    if(continueCheck(cont))
+        sellerLogin()
+    else
+        return
+}
+
+fun adminLogin() {
+
+    println("Enter your registered Username")
+    val username  = readLine().toString()
+    println("Enter your registered Password")
+    val password  = readLine().toString()
+
+    val adminLogin = AdminLogin(username,password);
+    if(adminLogin.login(adminValidation)){
+        val auth = AuthenticateRegisteredAdmin(username,password);
+        if(auth.checkAdminCredentials())
+        {
+            isAdminLoggedIn = true
+            println("Login Successfull :)")
+        }else
+        {
+            println("Invalid Credentials")
+        }
+    }else{
+        adminLoginContinueMessage()
+    }
+}
+
+fun adminLoginContinueMessage() {
+    println("Do you want to continue (Y/N)")
+    val cont = readLine().toString()
+    if(continueCheck(cont))
+        adminLogin()
+    else
+        return
+}
+
+fun customerLogin() {
+
+    println("Enter your registered Username")
+    val username  = readLine().toString()
+    println("Enter your registered Password")
+    val password  = readLine().toString()
+
+    val customerLogin = CustomerLogin(username,password);
+    if(customerLogin.login(customerValidation)){
+        val auth = AuthenticateRegisteredUser(username,password);
+        if(auth.checkCustomerCredentials())
+        {
+            isCustomerLoggedIn = true
+            println("Login Successfull :)")
+        }else
+        {
+            println("Invalid Credentials")
+        }
+    }else{
+        customerLoginContinueMessage()
+    }
+
+}
+
+fun customerLoginContinueMessage() {
+    println("Do you want to continue (Y/N)")
+    val cont = readLine().toString()
+    if(continueCheck(cont))
+        customerLogin()
+    else
+        return
 }
 
 fun registrationType() {
@@ -63,7 +209,7 @@ fun registrationType() {
          input = readLine()?.toInt() ?: 3
     }catch(e : Exception){
         println(e)
-        println("Do you want to continue")
+        println("Do you want to continue (Y/N)")
         val cont = readLine().toString()
         if(continueCheck(cont))
             registrationType()
@@ -97,7 +243,7 @@ fun sellerRegistration() {
     val password  = readLine().toString()
 
     val seller = Seller(username,email,password);
-    val sellerValidation = SellerRegistrationValidation()
+
     val sellerSignup = SellerSignup()
     val persist = PersistRegisteredUser()
     if(sellerSignup.register(sellerValidation,seller)){
@@ -128,7 +274,6 @@ fun adminRegistration() {
     val password  = readLine().toString()
 
     val admin = Admin(username,email,password);
-    val adminValidation = AdminRegistrationValidation()
     val adminSignup = AdminSignup()
     val persist = PersistRegisteredUser()
     if(adminSignup.register(adminValidation,admin)){
@@ -162,7 +307,6 @@ fun customerRegistration() {
     val password  = readLine().toString()
 
     val customer : Customer = Customer(username,email,password);
-    val customerValidation = CustomerRegistrationValidation()
     val customerSignup = CustomerSignup()
     val persist = PersistRegisteredUser()
     if(customerSignup.register(customerValidation,customer)){
@@ -176,7 +320,6 @@ fun customerRegistration() {
 }
 
 fun customerRegistrationContinueMessage() {
-
     println("Do you want to continue (Y/N)")
     val cont = readLine().toString()
     if(continueCheck(cont))

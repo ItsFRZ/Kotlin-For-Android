@@ -1,2 +1,2 @@
-Faraz,faraz@gmail.com,12345
-Faisal,faisal@gmail.com,1234567
+DemoCustomer,demo@gmail.com,demo#12345
+Robin,robin@gmail.co.in,robin12345

@@ -2,7 +2,27 @@ package day9.project.security.validation
 
 import day9.project.model.Seller
 
-class SellerRegistrationValidation : Validation(){
+class SellerValidation : Validation(){
+
+
+
+    fun validateRegisteredSeller(username : String,password : String) : Boolean{
+        var usernameFlag = false
+        var passwordFlag = false
+        if(validateUsername(username))
+            usernameFlag = true
+        else
+            usernameHelp()
+
+        if(validatePassword(password))
+            passwordFlag = true
+        else
+            passwordHelp()
+
+        return (passwordFlag&&usernameFlag)
+
+
+    }
 
     fun validateRestaurant(seller : Seller) : Boolean{
         var emailFlag = false
