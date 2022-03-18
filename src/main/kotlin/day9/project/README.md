@@ -12,10 +12,10 @@
 ##### Note
 Somewhere i used to replicate all features and somewhere i not implemented that feature but the thing is you can extend it because i tried to follow standard practices so that you can easliy extend this project
 
-* #####Pros :
+* ##### Pros :
     Good to practice your Low level skills
 
-* #####Cons :
+* ##### Cons :
     To much code
 
 
