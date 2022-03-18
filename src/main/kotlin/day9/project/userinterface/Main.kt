@@ -31,7 +31,7 @@ fun continueOperations(): Boolean {
 
 fun operationUI() {
     if(isCustomerLoggedIn){
-
+        customerUI()
     }
     if(isSellerLoggedIn){
         sellerUI()
@@ -40,6 +40,8 @@ fun operationUI() {
         adminUI()
     }
 }
+
+
 
 fun logoutUser(usermode : String){
     if(usermode.equals("admin") || usermode.equals("Admin"))

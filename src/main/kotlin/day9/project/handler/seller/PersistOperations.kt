@@ -1,4 +1,4 @@
-package day9.project.handler.restaurantop
+package day9.project.handler.seller
 
 import day9.project.model.items.*
 import java.io.*
@@ -226,7 +226,7 @@ class PersistOperations {
 
     }
 
-    private fun printRestaurantsGracefully(username: String, path: String) {
+     fun printRestaurantsGracefully(username: String, path: String) {
         try{
             val reader = BufferedReader(FileReader(path));
             val iterator = reader.lineSequence().iterator()
@@ -241,7 +241,7 @@ class PersistOperations {
         }
     }
 
-    private fun getCleanInfo(line: String): String {
+    fun getCleanInfo(line: String): String {
         val dataChunks = line.split(",")
         val username =dataChunks.get(0)
         val restaurantName =dataChunks.get(1)
@@ -250,7 +250,7 @@ class PersistOperations {
         val tableCount =dataChunks.get(4)
         val tablesInfo = getTablesInfo(dataChunks.get(5))
         var result = "--------------------------------------***${restaurantName}***--------------------------------------\n"
-        result += "*) Restaurant Type :- $restaurantType\nRestaurant Location :-  $restaurantAddress\nTables in Restaurant :- $tableCount\n"
+        result += "Restaurant Type :- $restaurantType\nRestaurant Location :-  $restaurantAddress\nTables in Restaurant :- $tableCount\n"
         result += "Table Status :\n$tablesInfo\n"
         result += "--------------------------------------***~END~***--------------------------------------\n\n"
         return result
