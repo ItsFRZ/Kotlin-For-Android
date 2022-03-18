@@ -41,3 +41,15 @@ fun operationUI() {
     }
 }
 
+fun logoutUser(usermode : String){
+    if(usermode.equals("admin") || usermode.equals("Admin"))
+        isAdminLoggedIn = false
+
+    if(usermode.equals("customer") || usermode.equals("Customer"))
+        isCustomerLoggedIn = false
+
+    if(usermode.equals("seller") || usermode.equals("Seller"))
+        isSellerLoggedIn = false
+
+    main()
+}

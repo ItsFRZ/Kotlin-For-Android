@@ -16,7 +16,8 @@ private fun run(){
     println("Press 2 to For Sellers Info")
     println("Press 3 Remove Customer")
     println("Press 4 Remove Seller")
-    println("Press 5 to Exit")
+    println("Press 5 to Logout")
+    println("Press 6 to Exit")
     try {
         val choice = readLine()?.toInt() ?: 0
         choiceMaker(choice);
@@ -29,11 +30,9 @@ private fun run(){
 }
 private fun choiceMaker(choice: Int) {
     when(choice){
-        0->{
-            showAllCustomerInfo()
-        }
-        1->{
 
+        1->{
+            showAllCustomerInfo()
         }
         2->{
 
@@ -44,12 +43,18 @@ private fun choiceMaker(choice: Int) {
         4->{
 
         }
-
+        5->{
+            logoutAdmin()
+        }
 
         else -> {
             return
         }
     }
+}
+
+fun logoutAdmin() {
+    logoutUser("admin")
 }
 
 fun showAllCustomerInfo() {

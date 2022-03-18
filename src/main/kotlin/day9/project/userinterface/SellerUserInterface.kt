@@ -16,7 +16,8 @@ private fun run(){
    println("Press 1 to Add new Restaurant")
    println("Press 2 to Remove Restaurant")
    println("Press 3 to Add tables")
-   println("Press 4 to Exit")
+   println("Press 4 to Logout")
+   println("Press 5 to Exit")
    //   println("Press 5 to Remove table")
    try {
       val choice = readLine()?.toInt() ?: 0
@@ -43,6 +44,9 @@ private fun choiceMaker(choice: Int) {
       3->{
          addNewTable();
       }
+      4->{
+         logoutSeller();
+      }
 //      4->{
 //         removeExistingTable();
 //      }
@@ -50,6 +54,10 @@ private fun choiceMaker(choice: Int) {
          return
       }
    }
+}
+
+fun logoutSeller() {
+   logoutUser("seller");
 }
 
 //fun removeExistingTable() {

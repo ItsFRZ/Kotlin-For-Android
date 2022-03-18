@@ -11,6 +11,7 @@ import day9.project.security.auth.*
 import day9.project.security.validation.AdminValidation
 import day9.project.security.validation.CustomerValidation
 import day9.project.security.validation.SellerValidation
+import kotlin.system.exitProcess
 
 
 private val customerValidation = CustomerValidation()
@@ -43,6 +44,9 @@ fun authUI() {
         }
         2 -> {
             registrationType();
+        }
+        3 -> {
+            exitProcess(1);
         }
         else -> {
             continueRun();
