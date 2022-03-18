@@ -1,0 +1,2 @@
+DemoR,DemoTwo,CasualDining,Mumbai,4,(0->3||false)(1->4||false)(2->2||false)(3->5||false)
+DemoR,DemoFour,CasualDining,Chennai,4,(0->3||false)(1->4||false)(2->2||false)(3->5||false)

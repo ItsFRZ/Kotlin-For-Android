@@ -10,3 +10,7 @@ private val persistOperations = PersistOperations()
 fun storeRestaurantsOf(username : String,restaurant: Restaurant){
     persistOperations.persistRestaurantDetails(username,restaurant)
 }
+
+fun removeFromFile(username : String,restaurantName: String){
+    persistOperations.removeRestaurantOf(username,restaurantName)
+}

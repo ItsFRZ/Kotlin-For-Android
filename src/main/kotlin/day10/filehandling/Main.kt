@@ -7,15 +7,15 @@ const val PATH : String = "E:/Internship Workspace/FULL Creative/Kotlin For Andr
 
 
 
-fun main() {
-
-//    var file : File = createFile("${PATH}Faraz.txt")
-//    println(file)
-
-    val data : String = "Hello World this is Faraz Sheikh Anna\n"
-    writeData("${PATH}Faraz.txt",data);
-//    readData("${PATH}Faraz.txt")
-}
+//fun main() {
+//
+////    var file : File = createFile("${PATH}Faraz.txt")
+////    println(file)
+//
+//    val data : String = "Hello World this is Faraz Sheikh Anna\n"
+//    writeData("${PATH}Faraz.txt",data);
+////    readData("${PATH}Faraz.txt")
+//}
 
 
 fun createFile(fileName : String) : File{
@@ -56,5 +56,25 @@ fun readData(path : String){
     }
 }
 
+fun main() {
+
+    val dirPath = "E:/Internship Workspace/FULL Creative/Kotlin For Android Development/Kotlin-For-Android/src/main/kotlin/day9/project/database"
+    readAllFiles(dirPath)
+
+}
+
+fun readAllFiles(directoryPath : String){
+    val dir = File(directoryPath)
+    val listFilesPath = dir.listFiles()
+    if (listFilesPath != null){
+
+        for (path in listFilesPath){
+            if(path.name.endsWith(".txt"))
+                readData(path.path)
+        }
+
+    }
+
+}
 
 

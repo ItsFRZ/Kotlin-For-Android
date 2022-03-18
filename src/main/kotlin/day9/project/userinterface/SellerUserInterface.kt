@@ -1,9 +1,7 @@
 package day9.project.userinterface
 
-import day9.project.controller.addRestaurantInfo
-import day9.project.controller.displayAllRestaurantInfo
-import day9.project.model.items.RestaurantType
-import day9.project.model.items.Tables
+import day9.project.controller.*
+import day9.project.model.items.*
 
 
 private var activeUser = currentUser;
@@ -40,7 +38,7 @@ private fun choiceMaker(choice: Int) {
          addNewRestaurant();
       }
       2->{
-//         removeRestaurant();
+         removeRestaurant();
       }
       3->{
 //         addNewTable();
@@ -55,6 +53,13 @@ private fun choiceMaker(choice: Int) {
          return
       }
    }
+}
+
+fun removeRestaurant() {
+   println("Enter Restaurant name ?")
+   var restaurantName : String = readLine().toString().trim()
+   removeRestaurant(activeUser,restaurantName)
+
 }
 
 
