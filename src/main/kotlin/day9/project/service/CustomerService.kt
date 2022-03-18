@@ -9,3 +9,7 @@ fun displayAllRestaurantInfoFromDB(username : String){
     custoomerOperations.displayAllRestaurantInfoFromDB(username);
 }
 
+
+fun displaySelectedRestaurantInfoFromDB(restaurantName : String,restaurantAddress : String){
+    custoomerOperations.displaySelectedRestaurantInfoFromDB(restaurantName,restaurantAddress);
+}

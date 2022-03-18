@@ -35,7 +35,7 @@ private fun choiceMaker(choice: Int) {
             listAllRestaurantInfoForUser();
         }
         2->{
-
+            searchRestaurant();
         }
         3->{
 
@@ -53,8 +53,20 @@ private fun choiceMaker(choice: Int) {
     }
 }
 
+
+
 fun listAllRestaurantInfoForUser() {
     displayAllRestaurantInfoForUser(activeUser)
+}
+
+fun searchRestaurant() {
+    println("Enter restaurant name ?")
+    var restaurantName : String = readLine().toString()
+    println("Enter restaurant address ?")
+    var restaurantLocation : String = readLine().toString()
+
+    searchRestaurant(restaurantName,restaurantLocation)
+
 }
 
 
