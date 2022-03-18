@@ -37,7 +37,7 @@ fun operationUI() {
         sellerUI()
     }
     if(isAdminLoggedIn){
-
+        adminUI()
     }
 }
 

@@ -16,8 +16,8 @@ private fun run(){
    println("Press 1 to Add new Restaurant")
    println("Press 2 to Remove Restaurant")
    println("Press 3 to Add tables")
-//   println("Press 4 to Remove table")
    println("Press 4 to Exit")
+   //   println("Press 5 to Remove table")
    try {
       val choice = readLine()?.toInt() ?: 0
       choiceMaker(choice);
