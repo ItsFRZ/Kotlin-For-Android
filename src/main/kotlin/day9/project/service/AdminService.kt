@@ -17,3 +17,10 @@ fun displayAllSellerInfoToAdmin(username : String){
 fun removeDefaulterCustomerByAdmin(username : String,customerName:String,emailId : String){
     adminOperations.removeDefaulterCustomer(username,customerName,emailId)
 }
+
+
+fun removeDefaulterSellerByAdmin(username : String,sellerName:String,emailId : String){
+    adminOperations.removeDefaulterSeller(username,sellerName,emailId)
+}
+
+

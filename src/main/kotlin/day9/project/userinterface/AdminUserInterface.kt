@@ -41,7 +41,7 @@ private fun choiceMaker(choice: Int) {
             removeCustomer();
         }
         4->{
-
+            removeSeller();
         }
         5->{
             logoutAdmin()
@@ -51,6 +51,14 @@ private fun choiceMaker(choice: Int) {
             return
         }
     }
+}
+
+fun removeSeller() {
+    println("Enter Seller's Username")
+    val username = readLine().toString()
+    println("Enter Seller's EmailId")
+    val password = readLine().toString()
+    removeDefaulterSeller(activeUser,username,password)
 }
 
 fun removeCustomer() {

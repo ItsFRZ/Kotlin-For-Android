@@ -70,21 +70,37 @@ class AdminOperations() {
 
     }
 
+                        /*Remove User*/
 
     // Remove default customer by Admin for specific reason
-    fun removeDefaulterCustomer(username: String,customerName:String,emailId : String){
-        val path : String = "${ADDRESS}/RegisteredUser.txt";
+    fun removeDefaulterCustomer(username: String,customerName:String,emailId : String) {
+        removeDefaulterUser(username,"Customer",customerName,emailId);
+    }
+    // Remove default Seller by Admin for specific reason
+    fun removeDefaulterSeller(username: String,sellerName:String,emailId : String) {
+        removeDefaulterUser(username,"Seller",sellerName,emailId);
+    }
+
+
+    fun removeDefaulterUser(username: String,userMode : String,targetName:String,emailId : String){
+        val path : String = generatePath(userMode)
         var file = File(path)
         if(!file.exists())
         {
-            println("Customer's Info are not found!")
+            println("$userMode's Info are not found!")
             return
         }
-        var data = deleteDataAndGenerateData(path,customerName,emailId)
+        var data = deleteDataAndGenerateData(path,targetName,emailId)
         deleteFileOf(path)
         writeData(path,data)
-        println("Customer $customerName is removed by Admin $username")
+        println("$userMode $targetName is removed by Admin $username")
 
+    }
+
+    private fun generatePath(userMode: String): String {
+        if (userMode.equals("customer") || userMode.equals("Customer"))
+            return "$ADDRESS/RegisteredUser.txt"
+        return "$ADDRESS/RegisteredSeller.txt"
     }
 
     private fun deleteFileOf(path: String) {
@@ -112,6 +128,10 @@ class AdminOperations() {
         }
         return result;
     }
+
+
+
+
 
     // Read data template
 

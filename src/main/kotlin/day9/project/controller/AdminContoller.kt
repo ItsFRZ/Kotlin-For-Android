@@ -18,3 +18,7 @@ fun removeDefaulterCustomer(username : String,customerName:String,emailId : Stri
     removeDefaulterCustomerByAdmin(username,customerName,emailId)
 }
 
+fun removeDefaulterSeller(username : String,sellerName:String,emailId : String){
+    removeDefaulterSellerByAdmin(username,sellerName,emailId)
+}
+
