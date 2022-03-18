@@ -9,3 +9,11 @@ fun displayAllCustomerInfoToAdmin(username : String){
     adminOperations.printAllCustomerDetail(username);
 }
 
+fun displayAllSellerInfoToAdmin(username : String){
+    adminOperations.printAllSellerDetail(username);
+}
+
+
+fun removeDefaulterCustomerByAdmin(username : String,customerName:String,emailId : String){
+    adminOperations.removeDefaulterCustomer(username,customerName,emailId)
+}

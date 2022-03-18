@@ -1,6 +1,6 @@
 package day9.project.userinterface
 
-import day9.project.controller.displayAllCustomerInfo
+import day9.project.controller.*
 
 
 private var activeUser = currentUser;
@@ -35,10 +35,10 @@ private fun choiceMaker(choice: Int) {
             showAllCustomerInfo()
         }
         2->{
-
+            showAllSellerInfo();
         }
         3->{
-
+            removeCustomer();
         }
         4->{
 
@@ -52,6 +52,20 @@ private fun choiceMaker(choice: Int) {
         }
     }
 }
+
+fun removeCustomer() {
+    println("Enter Customer's Username")
+    val username = readLine().toString()
+    println("Enter Customer's EmailId")
+    val password = readLine().toString()
+    removeDefaulterCustomer(activeUser,username,password)
+}
+
+fun showAllSellerInfo() {
+    displayAllSellerInfo(activeUser)
+
+}
+
 
 fun logoutAdmin() {
     logoutUser("admin")
