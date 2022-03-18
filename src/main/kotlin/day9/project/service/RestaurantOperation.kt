@@ -7,6 +7,10 @@ private val persistOperations = PersistOperations()
 
 
 
+fun displayAllRestaurantInfoForUser(username: String){
+    persistOperations.printRestaurantsDetail(username);
+}
+
 fun storeRestaurantsOf(username : String,restaurant: Restaurant){
     persistOperations.persistRestaurantDetails(username,restaurant)
 }
@@ -17,4 +21,8 @@ fun removeFromFile(username : String,restaurantName: String){
 
 fun addNewTableInFile(username : String,restaurantName: String,seats : Int){
     persistOperations.addNewTableOf(username,restaurantName,seats)
+}
+
+fun removeTableFromFile(username : String,restaurantName: String,table : Int){
+    persistOperations.removeTableOf(username,restaurantName,table)
 }

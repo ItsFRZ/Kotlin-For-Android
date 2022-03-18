@@ -4,8 +4,8 @@ import day9.project.model.items.*
 import day9.project.service.*
 
 
-fun displayAllRestaurantInfo(user : String){
-
+fun displayAllRestaurantInfo(ownername : String){
+    displayAllRestaurantInfoForUser(ownername)
 }
 
 fun addRestaurantInfo(ownername: String, restaurant: String, type: String, address: String, tableCount: Int, tables: ArrayList<Tables>){
@@ -19,4 +19,8 @@ fun removeRestaurant(ownername: String,restaurantName : String){
 
 fun addTableRestaurant(ownername : String,restaurantName : String,seats:Int){
     addNewTableInFile(ownername,restaurantName,seats)
+}
+
+fun removeTableRestaurant(ownername : String,restaurantName : String,table:Int){
+    removeTableFromFile(ownername,restaurantName,table)
 }

@@ -16,9 +16,8 @@ private fun run(){
    println("Press 1 to Add new Restaurant")
    println("Press 2 to Remove Restaurant")
    println("Press 3 to Add tables")
-   println("Press 4 to Remove tables")
-   println("Press 5 to modify chair counts")
-   println("Press 6 to Exit")
+//   println("Press 4 to Remove table")
+   println("Press 4 to Exit")
    try {
       val choice = readLine()?.toInt() ?: 0
       choiceMaker(choice);
@@ -44,17 +43,29 @@ private fun choiceMaker(choice: Int) {
       3->{
          addNewTable();
       }
-      4->{
-//         removeTable();
-      }
-      5->{
-//         alterChair();
-      }
+//      4->{
+//         removeExistingTable();
+//      }
       else -> {
          return
       }
    }
 }
+
+//fun removeExistingTable() {
+//   println("Enter restaurant name")
+//   val restaurantName : String = readLine().toString().trim()
+//   println("Enter no of table you want to remove for $restaurantName")
+//   try{
+//      val table : Int = readLine()?.toInt() ?: 0
+//      removeTableRestaurant(activeUser,restaurantName,table);
+//   }catch (e : Exception){
+//      println("Please enter numeric value only")
+//      removeExistingTable()
+//   }
+//
+//}
+
 
 fun addNewTable() {
    println("Enter restaurant name")

@@ -97,7 +97,7 @@ class PersistOperations {
         var tablesInfo : String = ""
         var idx = 0
         for (i in restaurant.tables){
-            tablesInfo += "(${i.seatCounts}||${i.isBooked})"
+            tablesInfo += "(${i.seatCounts}||${i.isBooked})_"
             idx+=1
         }
         val ownerName = restaurant.owner
@@ -106,8 +106,8 @@ class PersistOperations {
         val restaurantAddress = restaurant.address
         val tableCounts = restaurant.tableCount
 
-        println("${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo}\n")
-        return "${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo}\n"
+        println("${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo.substring(0,tablesInfo.length-1)}\n")
+        return "${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo.substring(0,tablesInfo.length-1)}\n"
     }
 
 
@@ -135,7 +135,7 @@ class PersistOperations {
             while(iterator.hasNext()){
                 val line = iterator.next()
                 if (line.contains(restaurantName)){
-                    result += line+"($seats||false)\n"
+                    result += line+"_($seats||false)\n"
                 }else{
                     result += line+"\n";
                 }
@@ -150,8 +150,131 @@ class PersistOperations {
     }
 
 
+    // Remove existing table from given restaurant
+    fun removeTableOf(username : String,restaurantName : String ,table : Int){
+        val path = "$ADDRESS/$username.txt";
+        val file = File(path);
+        if (!file.exists())
+        {
+            println("Restaurant $restaurantName is not exist in database")
+            return
+        }
+
+        var data : String = removeTableAndGenerateData(restaurantName,path,table)
+        deleteFileOf(path);
+        writeData(path,data)
+        println("$username removed $table table from $restaurantName")
+    }
+
+    private fun removeTableAndGenerateData(restaurantName: String, path: String, table: Int): String {
+        var result : String  = ""
+        try{
+            val reader = BufferedReader(FileReader(path));
+            val iterator = reader.lineSequence().iterator()
+            while(iterator.hasNext()){
+                val line = iterator.next()
+                if(line.contains(restaurantName)){
+                    var targetLine = removeTableFromLine(line,table)
+                }else{
+                    result = line+"\n"
+                }
+
+            }
+            reader.close()
+        }catch (e : Exception){
+            println(e)
+        }
+
+        return result
+    }
+
+    private fun removeTableFromLine(line: String, table: Int): String {
+        var dataChunks = line.split(",")
+        var halfData : String = getHalfData(dataChunks,0,dataChunks.size-2)
+        var tables : String= dataChunks[5]
+        var tableList = tables.split("_");
+        if(tableList.size < table){
+            println("You cannot remove $table because it has only ${tableList.size} no of table")
+            return ""
+        }
+        var secondHalfData : String = getHalfData(tableList,0,table-1)
+        return halfData+secondHalfData+"\n"
+
+    }
+
+    private fun getHalfData(dataChunks: List<String>, start: Int, end: Int): String {
+        var data = ""
+        for(i in start..end){
+            data+=dataChunks.get(i)
+        }
+        return data
+    }
 
 
+
+    // Display All Restaurant For given user
+    fun printRestaurantsDetail(username : String){
+        val path = "$ADDRESS/$username.txt";
+        val file = File(path);
+        if (!file.exists())
+        {
+            println("Restaurant owner $username is not exist in database")
+            return
+        }
+
+        printRestaurantsGracefully(username,path)
+
+    }
+
+    private fun printRestaurantsGracefully(username: String, path: String) {
+        try{
+            val reader = BufferedReader(FileReader(path));
+            val iterator = reader.lineSequence().iterator()
+            while(iterator.hasNext()){
+                val line = iterator.next()
+                val cleanInfo : String = getCleanInfo(line)
+                println(cleanInfo)
+            }
+            reader.close()
+        }catch (e : Exception){
+            println(e)
+        }
+    }
+
+    private fun getCleanInfo(line: String): String {
+        val dataChunks = line.split(",")
+        val username =dataChunks.get(0)
+        val restaurantName =dataChunks.get(1)
+        val restaurantType =dataChunks.get(2)
+        val restaurantAddress =dataChunks.get(3)
+        val tableCount =dataChunks.get(4)
+        val tablesInfo = getTablesInfo(dataChunks.get(5))
+        var result = "--------------------------------------***${restaurantName}***--------------------------------------\n"
+        result += "*) Restaurant Type :- $restaurantType\nRestaurant Location :-  $restaurantAddress\nTables in Restaurant :- $tableCount\n"
+        result += "Table Status :\n$tablesInfo\n"
+        result += "--------------------------------------***~END~***--------------------------------------\n\n"
+        return result
+    }
+
+    private fun getTablesInfo(tables: String): String {
+        val dataChunks = tables.split("_")
+        var data : String = ""
+        var idx : Int = 1
+        for (part in dataChunks){
+            var table = part.substring(1,part.length-1);
+            var tableInfo = table.split("||")
+            data += "Table $idx contains ${tableInfo.get(0)} seats and its status is ${isBooked(tableInfo.get(1))}\n"
+            idx +=1
+
+        }
+        return data;
+    }
+
+    private fun isBooked(status: String): String {
+        if(status.equals("true") || status.equals("True"))
+            return "booked"
+        return "not booked"
+    }
 
     // Read Template
 

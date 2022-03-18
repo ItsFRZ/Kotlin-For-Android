@@ -1,4 +1,2 @@
-DemoR,DemoOne,FineDining,Nagpur,3,(4||false)(5||false)(3||false)
-DemoR,DemoTwo,FineDining,Mumbai,3,(4||false)(5||false)(3||false)
-DemoR,DemoThree,FineDining,Delhi,3,(4||false)(5||false)(3||false)
-DemoR,DemoFour,FineDining,Chennai,3,(4||false)(5||false)(3||false)(7||false)
+DemoR,DemoFour,FamilyStyle,Nagpur,3,(4||false)_(3||false)_(4||false)
+DemoR,Bagulban,FamilyStyle,Nagpur,1,(5||false)_(4||false)
