@@ -1,2 +1,4 @@
-DemoR,DemoTwo,CasualDining,Mumbai,4,(0->3||false)(1->4||false)(2->2||false)(3->5||false)
-DemoR,DemoFour,CasualDining,Chennai,4,(0->3||false)(1->4||false)(2->2||false)(3->5||false)
+DemoR,DemoOne,FineDining,Nagpur,3,(4||false)(5||false)(3||false)
+DemoR,DemoTwo,FineDining,Mumbai,3,(4||false)(5||false)(3||false)
+DemoR,DemoThree,FineDining,Delhi,3,(4||false)(5||false)(3||false)
+DemoR,DemoFour,FineDining,Chennai,3,(4||false)(5||false)(3||false)(7||false)

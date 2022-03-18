@@ -2,6 +2,7 @@ package day9.project.userinterface
 
 import day9.project.controller.*
 import day9.project.model.items.*
+import java.lang.reflect.Executable
 
 
 private var activeUser = currentUser;
@@ -41,7 +42,7 @@ private fun choiceMaker(choice: Int) {
          removeRestaurant();
       }
       3->{
-//         addNewTable();
+         addNewTable();
       }
       4->{
 //         removeTable();
@@ -53,6 +54,22 @@ private fun choiceMaker(choice: Int) {
          return
       }
    }
+}
+
+fun addNewTable() {
+   println("Enter restaurant name")
+   val restaurantName : String = readLine().toString().trim()
+   println("Enter no of seats for your new table")
+   try{
+      val seats : Int = readLine()?.toInt() ?: 0
+      addTableRestaurant(activeUser,restaurantName,seats);
+   }catch (e : Exception){
+      println("Please enter numeric value only")
+      addNewTable()
+   }
+
+
+
 }
 
 fun removeRestaurant() {

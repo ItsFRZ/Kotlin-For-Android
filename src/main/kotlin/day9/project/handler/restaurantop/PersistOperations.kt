@@ -92,6 +92,69 @@ class PersistOperations {
     }
 
 
+    private fun getCleanData(restaurant: Restaurant): String {
+        var finalData :  String = ""
+        var tablesInfo : String = ""
+        var idx = 0
+        for (i in restaurant.tables){
+            tablesInfo += "(${i.seatCounts}||${i.isBooked})"
+            idx+=1
+        }
+        val ownerName = restaurant.owner
+        val restaurantName = restaurant.restaurantName
+        val restaurantType = restaurant.restaurantType
+        val restaurantAddress = restaurant.address
+        val tableCounts = restaurant.tableCount
+
+        println("${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo}\n")
+        return "${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo}\n"
+    }
+
+
+    // Add New Table
+    fun addNewTableOf(username : String,restaurantName : String ,seats : Int){
+        val path = "$ADDRESS/$username.txt";
+        val file = File(path);
+        if (!file.exists())
+        {
+            println("Restaurant $restaurantName is not exist in database")
+            return
+        }
+
+        var data : String = addTableAndGenerateData(restaurantName,path,seats)
+        deleteFileOf(path);
+        writeData(path,data)
+        println("$username added a new $seats sitter table in $restaurantName")
+    }
+
+    private fun addTableAndGenerateData(restaurantName: String, path: String, seats: Int): String {
+        var result : String  = ""
+        try{
+            val reader = BufferedReader(FileReader(path));
+            val iterator = reader.lineSequence().iterator()
+            while(iterator.hasNext()){
+                val line = iterator.next()
+                if (line.contains(restaurantName)){
+                    result += line+"($seats||false)\n"
+                }else{
+                    result += line+"\n";
+                }
+
+            }
+            reader.close()
+        }catch (e : Exception){
+            println(e)
+        }
+
+        return result
+    }
+
+
+
+
+
+    // Read Template
+
     fun readData(path : String) {
         try{
             val reader = BufferedReader(FileReader(path));
@@ -107,23 +170,6 @@ class PersistOperations {
     }
 
 
-    private fun getCleanData(restaurant: Restaurant): String {
-        var finalData :  String = ""
-        var tablesInfo : String = ""
-        var idx = 0
-        for (i in restaurant.tables){
-            tablesInfo += "(${idx}->${i.seatCounts}||${i.isBooked})"
-            idx+=1
-        }
-        val ownerName = restaurant.owner
-        val restaurantName = restaurant.restaurantName
-        val restaurantType = restaurant.restaurantType
-        val restaurantAddress = restaurant.address
-        val tableCounts = restaurant.tableCount
-
-        println("${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo}\n")
-        return "${ownerName},${restaurantName},${restaurantType},${restaurantAddress},${tableCounts},${tablesInfo}\n"
-    }
 
 
 }
