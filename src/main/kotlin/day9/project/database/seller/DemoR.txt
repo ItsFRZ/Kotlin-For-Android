@@ -1,3 +1,0 @@
-DemoR,DemoFour,FamilyStyle,Nagpur,3,(4||false)_(3||false)_(4||false)
-DemoR,Bagulban,FamilyStyle,Nagpur,1,(5||false)_(4||false)
-DemoR,Vegans,FineDining,Mumbai,5,(4||false)_(5||false)_(4||false)_(3||false)_(2||false)

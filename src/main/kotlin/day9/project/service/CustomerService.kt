@@ -13,3 +13,12 @@ fun displayAllRestaurantInfoFromDB(username : String){
 fun displaySelectedRestaurantInfoFromDB(restaurantName : String,restaurantAddress : String){
     custoomerOperations.displaySelectedRestaurantInfoFromDB(restaurantName,restaurantAddress);
 }
+
+
+fun fetchedPreferredTableService(username : String,seats: String,location : String) : Boolean{
+    return custoomerOperations.fetchedPreferredTable(username,seats,location);
+}
+
+fun bookRestaurantTable(username : String,restaurantName: String,seats : String,location : String){
+    custoomerOperations.bookRestaurantTable(username,restaurantName,seats,location);
+}

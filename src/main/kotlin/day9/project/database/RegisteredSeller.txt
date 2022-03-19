@@ -1,7 +1,2 @@
-AlKarim,karimsinternation@karim.com,karim#9999
-Alexander,alex.tuli@gmail.com,alex#12345
-Shaun,shaun.emperial@gmail.com,shaun#14553
-Jacob,jacob@yahoo.com,jacob#34345
-Samson,samson@gmail.com,sammy#12234335
-DemoR,demo@gmail.com,demo#12345
-DemoOne,demo1@gmail.com,demo#12345
+DemoOne,demoone@gmail.com,demo#1
+DemoTwo,demotwo@gmail.com,demo#2

@@ -42,20 +42,6 @@ fun writeData(filePath : String,fileData : String){
     }
 }
 
-fun readData(path : String){
-    try{
-      val reader = BufferedReader(FileReader(path));
-      val iterator = reader.lineSequence().iterator()
-      while(iterator.hasNext()){
-          val line = iterator.next()
-          println(line)
-      }
-      reader.close()
-    }catch (e : Exception){
-        println(e)
-    }
-}
-
 fun main() {
 
     val dirPath = "E:/Internship Workspace/FULL Creative/Kotlin For Android Development/Kotlin-For-Android/src/main/kotlin/day9/project/database"
@@ -78,3 +64,17 @@ fun readAllFiles(directoryPath : String){
 }
 
 
+
+fun readData(path : String){
+    try{
+        val reader = BufferedReader(FileReader(path));
+        val iterator = reader.lineSequence().iterator()
+        while(iterator.hasNext()){
+            val line = iterator.next()
+            println(line)
+        }
+        reader.close()
+    }catch (e : Exception){
+        println(e)
+    }
+}

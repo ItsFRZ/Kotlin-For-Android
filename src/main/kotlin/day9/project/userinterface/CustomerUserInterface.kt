@@ -39,7 +39,7 @@ private fun choiceMaker(choice: Int) {
             searchRestaurant();
         }
         3->{
-
+            bookATable();
         }
         4->{
 
@@ -54,6 +54,32 @@ private fun choiceMaker(choice: Int) {
             run()
         }
     }
+}
+
+fun bookATable() {
+    println("Please enter your preferences followed by no of seats and location")
+
+    try {
+        println("How many seats in a table you want ?")
+        val seats = readLine()?.toInt() ?: 0
+
+        println("Enter city or address of preferred location which is good for you ?")
+        val address : String = readLine().toString();
+        val ispreferredRestaurant :Boolean = fetchedPreferredTable(activeUser,seats.toString(),address);
+        if(ispreferredRestaurant){
+            println("Please enter the name of restaurant you want to book from the given list")
+            val rname = readLine().toString()
+            bookRestaurantTableForUser(activeUser,rname,seats.toString(),address);
+        }else {
+            println("Either you not entered your preferences OR Table is not available")
+        }
+
+
+    }catch (e : Exception){
+        println("Please enter numeric values only")
+        bookATable()
+    }
+
 }
 
 fun logoutCustomer() {
