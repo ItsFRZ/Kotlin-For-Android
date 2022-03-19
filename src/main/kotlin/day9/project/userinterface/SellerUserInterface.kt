@@ -3,6 +3,7 @@ package day9.project.userinterface
 import day9.project.controller.*
 import day9.project.model.items.*
 import java.lang.reflect.Executable
+import kotlin.system.exitProcess
 
 
 private var activeUser = currentUser;
@@ -47,11 +48,14 @@ private fun choiceMaker(choice: Int) {
       4->{
          logoutSeller();
       }
+      5 -> {
+         exitProcess(1)
+      }
 //      4->{
 //         removeExistingTable();
 //      }
       else -> {
-         return
+         run()
       }
    }
 }

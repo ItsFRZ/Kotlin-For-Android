@@ -1,6 +1,7 @@
 package day9.project.userinterface
 
 import day9.project.controller.*
+import kotlin.system.exitProcess
 
 
 private var activeUser = currentUser;
@@ -46,9 +47,11 @@ private fun choiceMaker(choice: Int) {
         5->{
             logoutAdmin()
         }
-
+        6->{
+            exitProcess(1)
+        }
         else -> {
-            return
+            run()
         }
     }
 }

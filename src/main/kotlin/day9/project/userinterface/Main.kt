@@ -52,6 +52,6 @@ fun logoutUser(usermode : String){
 
     if(usermode.equals("seller") || usermode.equals("Seller"))
         isSellerLoggedIn = false
-
+1
     main()
 }
