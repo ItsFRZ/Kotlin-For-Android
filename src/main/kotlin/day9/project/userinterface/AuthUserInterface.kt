@@ -31,11 +31,8 @@ fun authUI() {
     try{
         input = readLine()?.toInt() ?: 3
     }catch(e : Exception){
-        println(e)
-        println("Do you want to continue (Y/N)")
-        val cont = readLine().toString()
-        if(continueCheck(cont))
-            authUI()
+        println("Please enter numeric value")
+        authUI()
     }
 
     when(input){
@@ -49,7 +46,7 @@ fun authUI() {
             exitProcess(1);
         }
         else -> {
-            continueRun();
+           authUI()
         }
     }
 
@@ -74,11 +71,8 @@ fun loginType() {
     try{
         input = readLine()?.toInt() ?: 3
     }catch(e : Exception){
-        println(e)
-        println("Do you want to continue (Y/N)")
-        val cont = readLine().toString()
-        if(continueCheck(cont))
-            loginType()
+        println("Please enter numeric value")
+        loginType()
     }
 
     when(input){
@@ -92,7 +86,7 @@ fun loginType() {
             sellerLogin()
         }
         else -> {
-            authUI()
+            return
         }
     }
 
@@ -208,11 +202,8 @@ fun registrationType() {
     try{
         input = readLine()?.toInt() ?: 3
     }catch(e : Exception){
-        println(e)
-        println("Do you want to continue (Y/N)")
-        val cont = readLine().toString()
-        if(continueCheck(cont))
-            registrationType()
+        println("Please enter numeric value only")
+        registrationType()
     }
     when(input){
         1 -> {
@@ -225,7 +216,7 @@ fun registrationType() {
             sellerRegistration()
         }
         else -> {
-            authUI()
+            return;
         }
     }
 
