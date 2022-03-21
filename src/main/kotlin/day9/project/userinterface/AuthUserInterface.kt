@@ -54,12 +54,6 @@ fun authUI() {
 
 }
 
-private fun continueRun() {
-    println("Do you want to continue (Y/N)")
-    val cont = readLine().toString()
-    if(continueCheck(cont))
-        authUI()
-}
 
 fun loginType() {
 
@@ -172,7 +166,7 @@ fun customerLogin() {
         {
             isCustomerLoggedIn = true
             currentUser = username
-            println("Login Successfull :)")
+            println("$currentUser Login Successfull :)")
         }else
         {
             println("Invalid Credentials")

@@ -151,12 +151,12 @@ class CustomerOperation {
         val rname = dataChunks.get(1)
         val rstyle = dataChunks.get(2)
         val raddress = dataChunks.get(3)
-        val rseats = dataChunks.get(4)
+        val rtablesCount = dataChunks.get(4)
         val tables = dataChunks.get(5)
 
         if(raddress.contains(location) && checkSeatsInTables(seats,tables)){
             println("--------------------------------***${rname}***--------------------------------\n")
-            println("Location :- $raddress , Seats :- $rseats, Restaurant Style :- $rstyle")
+            println("Location :- $raddress , Tables :- $rtablesCount, Restaurant Style :- $rstyle")
             println("Table Status :- Available")
             println("--------------------------------***~~~END~~~***--------------------------------\n")
             return true
@@ -185,6 +185,7 @@ class CustomerOperation {
             println("$username your booking is done")
         }else{
             println("$username your booking is not possible :( due to some internal issue")
+            println("Or someone else is already booked:( Please try on different location or restaurant")
             println("Please try again later :)")
         }
 

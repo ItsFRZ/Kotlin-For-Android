@@ -1,2 +1,2 @@
-DemoOne,Anonymous One,CasualDining,Nagpur,5,(4||false)_(3||false)_(5||true)_(6||false)_(3||false)
-DemoOne,Youth Open Garden,CasualDining,Mumbai,6,(5||false)_(4||true)_(3||false)_(2||false)_(6||false)_(2||false)
+DemoOne,Anonymous One,CasualDining,Nagpur,5,(4||false)_(3||true)_(5||true)_(6||false)_(3||true)
+DemoOne,Youth Open Garden,CasualDining,Mumbai,6,(5||false)_(4||true)_(3||false)_(2||false)_(6||true)_(2||false)

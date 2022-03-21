@@ -9,6 +9,7 @@ import kotlin.system.exitProcess
 private var activeUser = currentUser;
 
 fun sellerUI(){
+   activeUser = currentUser
    run();
 }
 

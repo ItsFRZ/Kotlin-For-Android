@@ -8,6 +8,7 @@ private var activeUser = currentUser;
 
 
 fun adminUI(){
+    activeUser = currentUser
     run();
 }
 

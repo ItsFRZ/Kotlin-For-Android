@@ -6,6 +6,7 @@ import kotlin.system.exitProcess
 private var activeUser = currentUser;
 
 fun customerUI() {
+    activeUser = currentUser
     run()
 }
 
@@ -57,6 +58,7 @@ private fun choiceMaker(choice: Int) {
 }
 
 fun bookATable() {
+    val currentUser = activeUser
     println("Please enter your preferences followed by no of seats and location")
 
     try {
@@ -65,11 +67,11 @@ fun bookATable() {
 
         println("Enter city or address of preferred location which is good for you ?")
         val address : String = readLine().toString();
-        val ispreferredRestaurant :Boolean = fetchedPreferredTable(activeUser,seats.toString(),address);
+        val ispreferredRestaurant :Boolean = fetchedPreferredTable(currentUser,seats.toString(),address);
         if(ispreferredRestaurant){
             println("Please enter the name of restaurant you want to book from the given list")
             val rname = readLine().toString()
-            bookRestaurantTableForUser(activeUser,rname,seats.toString(),address);
+            bookRestaurantTableForUser(currentUser,rname,seats.toString(),address);
         }else {
             println("Either you not entered your preferences OR Table is not available")
         }
@@ -83,7 +85,7 @@ fun bookATable() {
 }
 
 fun logoutCustomer() {
-    logoutUser("customer")
+    logoutUser("Customer")
 }
 
 

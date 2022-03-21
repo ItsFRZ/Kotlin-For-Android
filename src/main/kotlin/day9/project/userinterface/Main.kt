@@ -10,10 +10,8 @@ fun main() {
     if(isAdminLoggedIn || isSellerLoggedIn || isCustomerLoggedIn)
         operationUI();
     else
-    {
         authUI();
-        operationUI()
-    }
+
 
 
     main()

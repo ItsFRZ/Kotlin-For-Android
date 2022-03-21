@@ -19,4 +19,8 @@ fun data(){
 
 fun main() {
     data()
+
+    var data = 100/0
+    println(data)
+
 }
