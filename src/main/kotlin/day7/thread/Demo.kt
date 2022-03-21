@@ -7,12 +7,12 @@ class ThreadRunner : Thread(){
 
         synchronized(this){
 
-            for (i in 1..10) {
-                try{
-                    Thread.sleep(200)
-                    println(i)
-                }catch (e : Exception){}
-            }
+                    for (i in 1..10) {
+                        try{
+                            Thread.sleep(200)
+                            println(i)
+                        }catch (e : Exception){}
+                    }
         }
 
     }

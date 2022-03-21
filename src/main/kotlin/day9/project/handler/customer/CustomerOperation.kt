@@ -99,7 +99,7 @@ class CustomerOperation {
         val rTablesCount = dataChunk.get(3)
         val rTables = dataChunk.get(3);
 
-        if(rName.equals(restaurantName) && rAddress.equals(restaurantAddress))
+        if(rName.contains(restaurantName) && rAddress.equals(restaurantAddress))
             return true
         return false
     }

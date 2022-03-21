@@ -19,13 +19,7 @@ fun main() {
 
 }
 
-fun continueOperations(): Boolean {
-    println("Do you want to continue to perform operation(Y/N)")
-    val ans = readLine().toString().trim()
-    if(ans.equals("y") || ans.equals("Y") || ans.equals("yes") || ans.equals("Yes"))
-        return true
-    return false
-}
+
 
 fun operationUI() {
     if(isCustomerLoggedIn){
