@@ -42,7 +42,7 @@ private fun choiceMaker(choice: Int) {
          addNewRestaurant();
       }
       2->{
-//         removeRestaurant();
+         removeRestaurant();
       }
       3->{
 //         addNewTable();
@@ -60,6 +60,12 @@ private fun choiceMaker(choice: Int) {
          run()
       }
    }
+}
+
+fun removeRestaurant() {
+   println("Enter Restaurant name ?")
+   var restaurantName : String = readLine().toString().trim()
+   RestaurantController(currentUser).removeRestaurant(restaurantName);
 }
 
 fun addNewRestaurant() {
@@ -102,6 +108,7 @@ fun chooseRestaurantType(): String {
    else{
       return chooseRestaurantType()
    }
+
 }
 
 
@@ -128,13 +135,7 @@ fun logoutSeller() {
 //
 //
 //}
-//
-//fun removeRestaurant() {
-//   println("Enter Restaurant name ?")
-//   var restaurantName : String = readLine().toString().trim()
-//
-//}
-//
+
 //
 //fun addNewRestaurant() {
 //   println("Enter Restaurant name")

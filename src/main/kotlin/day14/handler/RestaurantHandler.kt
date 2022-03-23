@@ -148,3 +148,38 @@ fun saveRestaurantInfo(username : String,rname : String,rtype : String,raddress 
 
 
 }
+
+// Remove restaurant from DB
+fun removeRestaurantFromDb(username : String,rname : String){
+
+    val users = getUserList();
+    var myUser  = users.get(username);
+    if(myUser != null) {
+
+        loadRestaurantData()
+        for (i in 0 until RESTAURANT_DB.size){
+            val user = RESTAURANT_DB.get(i);
+            if(rname.equals(user.restaurantName.toString()) && username.equals(user.sellerName.toString())){
+
+                RESTAURANT_DB.removeAt(i)
+            }
+        }
+        var jsonArray = JSONArray();
+        if(RESTAURANT_DB.size > 0){
+            for(i in 0 until RESTAURANT_DB.size){
+                val jsonObject  = JSONObject(RESTAURANT_DB.get(i));
+
+                jsonArray.put(jsonObject);
+
+            }
+        }
+
+        val file = File(SELLER)
+        if(file.exists())
+            file.delete()
+
+        writeData(SELLER,jsonArray.toString())
+
+    }
+
+}
