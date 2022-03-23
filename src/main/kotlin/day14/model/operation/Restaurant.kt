@@ -4,6 +4,7 @@ data class Restaurant(
         var sellerName : String,
         var sellerEmail : String,
         var restaurantName : String,
+        var restaurantType : String,
         var restaurantAddress : String,
         var noOfTables : String,
         var tablesBooked : String,

@@ -1,0 +1,64 @@
+[{
+		"sellerName": "Robin",
+		"sellerEmail": "robin@gmail.com",
+		"restaurantName": "Robin's Open Garden Restaurant",
+		"restaurantType": "Family",
+		"restaurantAddress": "Nagpur, Maharashtra",
+		"noOfTables": "3",
+		"tablesBooked": "0",
+		"tables": [{
+			"tableId": "1",
+			"isBooked": false,
+			"seats": "5",
+			"bookedDate": "",
+			"bookedBy": ""
+		}, {
+			"tableId": "2",
+			"isBooked": false,
+			"seats": "5",
+			"bookedDate": "",
+			"bookedBy": ""
+		}, {
+			"tableId": "3",
+			"isBooked": false,
+			"seats": "7",
+			"bookedDate": "",
+			"bookedBy": ""
+		}]
+	},
+	{
+		"sellerName": "Kevin",
+		"sellerEmail": "kevin@gmail.com",
+		"restaurantName": "Kevin's Family Bistro",
+		"restaurantType": "Family",
+		"restaurantAddress": "Mumbai, Maharashtra",
+		"noOfTables": "4",
+		"tablesBooked": "2",
+		"tables": [{
+			"tableId": "1",
+			"isBooked": true,
+			"seats": "5",
+			"bookedDate": "3/23/2022",
+			"bookedBy": "Aman Gupta"
+		}, {
+			"tableId": "2",
+			"isBooked": false,
+			"seats": "5",
+			"bookedDate": "",
+			"bookedBy": ""
+		}, {
+			"tableId": "3",
+			"isBooked": false,
+			"seats": "7",
+			"bookedDate": "",
+			"bookedBy": ""
+		}, {
+			"tableId": "4",
+			"isBooked": true,
+			"seats": "3",
+			"bookedDate": "3/23/2022",
+			"bookedBy": "Rishab Pal"
+		}]
+	}
+
+]

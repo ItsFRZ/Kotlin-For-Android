@@ -3,12 +3,11 @@ package day14.userinterface
 import day14.contoller.Login
 import day14.contoller.Signup
 import day14.contoller.UserSession
-import day14.contoller.UserSession.*
 import day14.model.registration.*
 import kotlin.system.exitProcess
 
 var currentUser : String = "";
-
+var isLogIn : Boolean = false
 
 
 fun authUI() {
@@ -97,9 +96,10 @@ fun loginUser() {
     val password = readLine().toString()
     val isLoggedIn: Boolean = Login(username, password).login();
     if (isLoggedIn) {
-        currentUser = getUserMode(username);
-
-        println("$username you are logged in! Successfully :)\nUsermode : $currentUser")
+        val userMode = getUserMode(username);
+        currentUser = username
+        println("$username you are logged in! Successfully :)\nUsermode : $userMode")
+        isLogIn = true
     } else {
         println("Invalid credentials")
     }
@@ -107,7 +107,7 @@ fun loginUser() {
 }
 
 
-private fun getUserMode(username: String): String {
+fun getUserMode(username: String): String {
     return UserSession(username).userSession();
 }
 
