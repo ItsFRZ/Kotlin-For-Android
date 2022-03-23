@@ -22,8 +22,6 @@ fun operationUI() {
     }
     if(currentUserMode.equals(UserMode.Seller.name)){
         sellerUI()
-        println("Seller UI")
-
     }
     if(currentUserMode.equals(UserMode.Admin.name)){
 //        adminUI()

@@ -3,7 +3,9 @@ package day14.handler
 
 import day14.model.operation.Restaurant
 import day14.model.operation.Table
+import day14.model.registration.UserRegistration
 import org.json.JSONArray
+import org.json.JSONObject
 import java.io.File
 
 
@@ -18,6 +20,7 @@ const val SELLER = "$HOME/Seller.json"
 
 fun getAllRestaurantInfoForUser(username : String){
 
+    // Bug detected
     loadRestaurantData();
     for (i in 0 until RESTAURANT_DB.size){
         val res = RESTAURANT_DB[i]
@@ -35,13 +38,16 @@ fun gracefullyDisplayRestaurant(res: Restaurant) {
     for(table in res.tables){
         println("")
         println("----------------------------------------------------------****Table No :- ${table.tableId}****----------------------------------------------------------")
-        println("Booked Status :- ${table.isBooked}, Total Seats :- ${table.seats}, Booked Date :- ${table.bookedDate}, Booked By :- ${table.bookedBy}")
+        println("Booked Status :- ${table.booked}, Total Seats :- ${table.seats}, Booked Date :- ${table.bookedDate}, Booked By :- ${table.bookedBy}")
 
     }
     println("----------------------------------------------------------------------~~~||~~~----------------------------------------------------------------------\n")
 
 }
 
+
+
+// Loading JSON Data from file into Data Structure
 
 fun loadRestaurantData(){
     val file = File(SELLER);
@@ -59,7 +65,7 @@ fun loadRestaurantData(){
 fun getMappedData(allData: String): ArrayList<Restaurant> {
 
     val jsonArray = JSONArray(allData);
-    val data = ArrayList<Restaurant>();
+    var data = ArrayList<Restaurant>();
     for(i in 0 until jsonArray.length()){
 
         val jsonObject = jsonArray.getJSONObject(i)
@@ -86,7 +92,7 @@ fun getTablesData(jsonArray: JSONArray): ArrayList<Table> {
     for (i in 0 until jsonArray.length()){
         val jsonObject = jsonArray.getJSONObject(i);
         val tableId = jsonObject.getString("tableId");
-        val isBooked = jsonObject.getString("isBooked");
+        val isBooked = jsonObject.getString("booked");
         val seats = jsonObject.getString("seats");
         val bookedDate = jsonObject.getString("bookedDate");
         val bookedBy = jsonObject.getString("bookedBy");
@@ -95,4 +101,50 @@ fun getTablesData(jsonArray: JSONArray): ArrayList<Table> {
     }
 
     return tables;
+}
+
+// Persisting restaurant info to the user data
+fun saveRestaurantInfo(username : String,rname : String,rtype : String,raddress : String,rTableCount : String,rTables : ArrayList<Table>){
+
+    val users = getUserList();
+    var myUser  = users.get(username);
+    if(myUser != null){
+
+        val sellerName = myUser.get(1)
+        val sellerEmail = myUser.get(4)
+        val myRestaurant = Restaurant(
+                sellerName,
+                sellerEmail,
+                rname,
+                rtype,
+                raddress,
+                rTableCount,
+                0.toString(),
+                rTables
+        )
+
+        loadRestaurantData()
+        RESTAURANT_DB.add(myRestaurant);
+
+
+        var jsonArray = JSONArray();
+        if(RESTAURANT_DB.size > 0){
+            for(i in 0 until RESTAURANT_DB.size){
+                val jsonObject  = JSONObject(RESTAURANT_DB.get(i));
+
+                jsonArray.put(jsonObject);
+                println(jsonObject)
+            }
+        }
+
+        val file = File(SELLER)
+        if(file.exists())
+            file.delete()
+
+        writeData(SELLER,jsonArray.toString())
+
+
+    }
+
+
 }
