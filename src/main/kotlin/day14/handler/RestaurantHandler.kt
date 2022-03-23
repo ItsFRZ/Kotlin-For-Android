@@ -10,7 +10,7 @@ import java.io.File
 
 
 // Database
-private var RESTAURANT_DB = ArrayList<Restaurant>();
+var RESTAURANT_DB = ArrayList<Restaurant>();
 
 
 

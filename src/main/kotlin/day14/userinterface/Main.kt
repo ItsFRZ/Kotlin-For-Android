@@ -17,8 +17,7 @@ private fun run(){
 fun operationUI() {
     val currentUserMode = getUserMode(currentUser);
     if(currentUserMode.equals(UserMode.Customer.name)){
-//        customerUI()
-        println("Customer UI")
+        customerUI()
     }
     if(currentUserMode.equals(UserMode.Seller.name)){
         sellerUI()
