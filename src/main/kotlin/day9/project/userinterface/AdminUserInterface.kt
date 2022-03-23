@@ -16,7 +16,7 @@ fun adminUI(){
 private fun run(){
     println("Press 1 to For Customers Info")
     println("Press 2 to For Sellers Info")
-    println("Press 3 Remove Customer")
+    println("Press 3 Remove User")
     println("Press 4 Remove Seller")
     println("Press 5 to Logout")
     println("Press 6 to Exit")
@@ -66,9 +66,9 @@ fun removeSeller() {
 }
 
 fun removeCustomer() {
-    println("Enter Customer's Username")
+    println("Enter User's Username")
     val username = readLine().toString()
-    println("Enter Customer's EmailId")
+    println("Enter User's EmailId")
     val password = readLine().toString()
     removeDefaulterCustomer(activeUser,username,password)
 }

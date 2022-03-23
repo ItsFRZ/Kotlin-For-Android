@@ -5,6 +5,7 @@ var isCustomerLoggedIn = false
 var isSellerLoggedIn = false
 var isAdminLoggedIn = false
 
+
 fun main() {
 
     if(isAdminLoggedIn || isSellerLoggedIn || isCustomerLoggedIn)
@@ -15,7 +16,6 @@ fun main() {
 
 
     main()
-
 
 }
 
@@ -39,7 +39,7 @@ fun logoutUser(usermode : String){
     if(usermode.equals("admin") || usermode.equals("Admin"))
         isAdminLoggedIn = false
 
-    if(usermode.equals("customer") || usermode.equals("Customer"))
+    if(usermode.equals("customer") || usermode.equals("User"))
         isCustomerLoggedIn = false
 
     if(usermode.equals("seller") || usermode.equals("Seller"))

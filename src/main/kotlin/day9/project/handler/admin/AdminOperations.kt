@@ -12,7 +12,7 @@ private const val ADDRESS = "E:/Internship Workspace/FULL Creative/Kotlin For An
 class AdminOperations() {
 
 
-    // Print All Customer Details to Admin
+    // Print All User Details to Admin
 
     fun printAllCustomerDetail(username : String){
         val path : String = "${ADDRESS}/RegisteredUser.txt";
@@ -23,8 +23,8 @@ class AdminOperations() {
             return
         }
 
-        println("----------------------------------****Customer's Info****----------------------------------")
-        readDataAsTable(path,"Customer");
+        println("----------------------------------****User's Info****----------------------------------")
+        readDataAsTable(path,"User");
         println("\n----------------------------------****~~~END~~~****----------------------------------")
 
     }
@@ -73,7 +73,7 @@ class AdminOperations() {
 
     // Remove default customer by Admin for specific reason
     fun removeDefaulterCustomer(username: String,customerName:String,emailId : String) {
-        removeDefaulterUser(username,"Customer",customerName,emailId);
+        removeDefaulterUser(username,"User",customerName,emailId);
     }
     // Remove default Seller by Admin for specific reason
     fun removeDefaulterSeller(username: String,sellerName:String,emailId : String) {
@@ -97,7 +97,7 @@ class AdminOperations() {
     }
 
     private fun generatePath(userMode: String): String {
-        if (userMode.equals("customer") || userMode.equals("Customer"))
+        if (userMode.equals("customer") || userMode.equals("User"))
             return "$ADDRESS/RegisteredUser.txt"
         return "$ADDRESS/RegisteredSeller.txt"
     }

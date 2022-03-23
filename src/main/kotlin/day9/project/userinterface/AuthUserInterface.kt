@@ -57,7 +57,7 @@ fun authUI() {
 
 fun loginType() {
 
-    println("Press 1 For Customer")
+    println("Press 1 For User")
     println("Press 2 For Admin")
     println("Press 3 For Restaurant Owner")
     println("Press any other number to Back")
@@ -188,7 +188,7 @@ fun customerLoginContinueMessage() {
 
 fun registrationType() {
 
-    println("Press 1 For Customer Registration")
+    println("Press 1 For User Registration")
     println("Press 2 For Admin Registration")
     println("Press 3 For Restaurant Owner Registration")
     println("Press any other number to Back")

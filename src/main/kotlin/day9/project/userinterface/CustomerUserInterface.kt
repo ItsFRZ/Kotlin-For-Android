@@ -85,7 +85,7 @@ fun bookATable() {
 }
 
 fun logoutCustomer() {
-    logoutUser("Customer")
+    logoutUser("User")
 }
 
 
