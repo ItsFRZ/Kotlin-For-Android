@@ -1,14 +1,19 @@
 package day14.model.operation
 
-//import java.util.*
-//
-//data class Booking(
-////        var username : String,
-////        var emailId : String,
-////        var restaurantName : String,
-////        var restaurantAddress : String,
-////        var tableSize : String,
-////        var bookingDate : Date,
-////        var isBooked : String,
-////        ) {
-//}
+
+data class Booking(
+        var username : String,
+        var userId : String,
+        var restaurantName : String,
+        var sellerId : String,
+        var bookedDate : String,
+        )
+
+
+data class Cancellation(
+    var username : String,
+    var userId : String,
+    var restaurantName : String,
+    var sellerId : String,
+    var cancelledDate : String,
+    )

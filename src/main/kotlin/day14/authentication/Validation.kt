@@ -9,6 +9,7 @@ open class Validation {
     private val ADDRESS = Regex("^[a-zA-Z0-9\\, ]{10,160}\$")
     private val PINCODE = Regex("^[0-9]{6}\$")
     private val MOBILENO = Regex("^([+0-9 ]{2,4})?([0-9]{10})\$")
+    private val DATE = Regex("^([0-9]{4})\\/([0-9]{2})\\/([0-9]{2})\$");
 
     fun validateEmail(input : String) : Boolean{
         return EMAIL.matches(input)
@@ -33,6 +34,45 @@ open class Validation {
         return MOBILENO.matches(input)
     }
 
+    fun validateDate(input : String) : Boolean{
+        return DATE.matches(input)
+    }
+
+
+    fun validateLogin(username : String,password : String) : Boolean{
+        if(validateUsername(username))
+        {
+            if (validatePassword(password))
+                return true
+            else
+                passwordHelp()
+        }else
+            usernameHelp()
+        return false
+    }
+
+    fun validateSignUp(username : String,contactType : String,email : String,password : String) : Boolean{
+        var isUserNameCorrect : Boolean = false
+        var isEmailCorrect : Boolean = false
+        var isPasswordCorrect : Boolean = false
+
+        if(validateEmail(email))
+            isEmailCorrect = true
+        else
+            emailHelp()
+
+        if(validateUsername(username))
+            isUserNameCorrect = true
+        else
+            usernameHelp()
+
+        if(validatePassword(password))
+            isPasswordCorrect = true
+        else
+            passwordHelp()
+
+        return isEmailCorrect && isPasswordCorrect && isUserNameCorrect
+    }
 
     fun emailHelp(){
         println("Please enter valid email address (example : robin@email.com)")
@@ -62,6 +102,11 @@ open class Validation {
 
     }
 
+    fun dateHelp(){
+        println("Please enter standard date format")
+        println("Ex (YYYY/MM/DD) : 2022/03/23")
+        println("Ex (YYYY/MM/DD) : 2023/04/25")
+    }
 
 
 }

@@ -43,9 +43,12 @@ fun main(){
 
 
     val utilityMethod = Utility()
-    utilityMethod.reversed("Faraz"){
-        it.reversed()
-    }
+    utilityMethod.reversed(
+        "Faraz",
+        {
+            it.reversed()
+        },
+    )
 
 }
 

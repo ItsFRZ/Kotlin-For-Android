@@ -1,1 +1,55 @@
-[{"uid":"1","password":"akash1234","usermode":"Customer","email":"akash@gmail.com","username":"Akash"},{"uid":"2","password":"aqsa1234","usermode":"Customer","email":"aqsa@gmail.com","username":"Aqsa"},{"uid":"3","password":"admin101","usermode":"Admin","email":"admin@system.com","username":"Alex"},{"uid":"4","password":"robin1234","usermode":"Seller","email":"robin@gmail.com","username":"Robin"},{"uid":"5","password":"kevin1234","usermode":"Seller","email":"kevin@gmail.com","username":"Kevin"}]
+[{
+	"password": "akash1234",
+	"contactId": "1",
+	"contactType": "Customer",
+	"email": "akash@gmail.com",
+	"username": "Akash"
+}, {
+	"password": "aqsa1234",
+	"contactId": "2",
+	"contactType": "Customer",
+	"email": "aqsa@gmail.com",
+	"username": "Aqsa"
+}, {
+	"password": "admin101",
+	"contactId": "3",
+	"contactType": "Admin",
+	"email": "admin@system.com",
+	"username": "Alexa"
+}, {
+	"password": "robin1234",
+	"contactId": "4",
+	"contactType": "Seller",
+	"email": "robin@gmail.com",
+	"username": "Robin"
+}, {
+	"password": "kevin1234",
+	"contactId": "5",
+	"contactType": "Seller",
+	"email": "kevin@gmail.com",
+	"username": "Kevin"
+}, {
+	"password": "faraz1234",
+	"contactId": "6",
+	"contactType": "Customer",
+	"email": "faraz@gmail.com",
+	"username": "Faraz"
+}, {
+	"password": "akshay1234",
+	"contactId": "7",
+	"contactType": "Customer",
+	"email": "akshay@gmail.com",
+	"username": "Akshay"
+}, {
+	"password": "samson12345",
+	"contactId": "8",
+	"contactType": "Customer",
+	"email": "samson@gmail.com",
+	"username": "Samson"
+}, {
+	"password": "nilson1234",
+	"contactId": "9",
+	"contactType": "Seller",
+	"email": "nilson@gmail.com",
+	"username": "Nilson"
+}]

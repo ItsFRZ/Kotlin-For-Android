@@ -1,36 +1,71 @@
 package day14.userinterface
 
+
+
 import day14.model.registration.UserMode
+import day14.model.registration.UserRegistration
+
+
+
+var mainOne = Main();
+
+
 
 fun main(){
-    run();
+    mainOne.run();
 }
 
-private fun run(){
-    if (currentUser.isEmpty())
-        authUI()
-    operationUI()
-
-}
+class Main(){
 
 
-fun operationUI() {
-    val currentUserMode = getUserMode(currentUser);
-    if(currentUserMode.equals(UserMode.Customer.name)){
-        customerUI()
+    private val authentication= Authentication();
+    private val user : UserRegistration = UserRegistration("","","","","");
+
+    fun logout(){
+        authentication.logout()
     }
-    if(currentUserMode.equals(UserMode.Seller.name)){
-        sellerUI()
-    }
-    if(currentUserMode.equals(UserMode.Admin.name)){
-//        adminUI()
-        println("Admin UI")
+
+    
+    
+    fun run(){
+
+        if(authentication.isLoggedIn()){
+            setUser(authentication.getLoggedUser())
+            operationUI(user)
+        }else{
+            authentication.authUI()
+        }
+
+        run()
 
     }
-}
+
+    private fun setUser(myUser: UserRegistration) {
+        val(contactId,username,contactType,password,email) = myUser
+        this.user.apply {
+            this.contactId = contactId
+            this.username = username
+            this.contactType = contactType
+            this.password = password
+            this.email = email
+        }
+    }
+
+
+    private fun operationUI(user : UserRegistration) {
+        val currentUserMode = user.contactType;
+        if(currentUserMode.equals(UserMode.Customer.name)){
+            CustomerUserInterface(user).customerUI()
+        }
+        if(currentUserMode.equals(UserMode.Seller.name)){
+            SellerUserInterface(user).sellerUI()
+        }
+        if(currentUserMode.equals(UserMode.Admin.name)){
+            AdminUserInterface(user).adminUI()
+        }
+    }
 
 
 
-fun logoutUser(usermode : String){
 
 }

@@ -1,11 +1,12 @@
 package day14.contoller
 
-import day14.handler.getUserList
+import day14.handler.LoadData
 
 
-class UserSession(private val username : String) {
-    fun userSession() : String{
-        val users : HashMap<String,ArrayList<String>> = getUserList();
-        return users.get(username)?.get(3) ?: "";
+class UserSession(private val user : HashMap<String,String>) {
+    fun isLoggedIn() : Boolean{
+        return true;
     }
+    fun getUser() : HashMap<String,String> = user
+
 }

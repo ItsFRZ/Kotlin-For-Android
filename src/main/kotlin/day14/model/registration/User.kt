@@ -5,9 +5,9 @@ enum class UserMode{
 }
 
 interface User {
-    var uid : String
+    var contactId : String
     var username : String
-    var usermode : String
+    var contactType : String
     var email : String
     var password : String
 }

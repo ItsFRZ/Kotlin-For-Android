@@ -1,14 +1,23 @@
 package day14.contoller
 
-import day14.handler.getUserList
+import day14.authentication.Validation
+import day14.model.registration.User
+import day14.model.registration.UserRegistration
+
 
 class Login(private var username:String,private var password : String) {
 
-    fun login() : Boolean{
-        val users : HashMap<String,ArrayList<String>> = getUserList();
-        val rusername : String = users.get(username)?.get(1) ?: "";
-        val rpassword : String = users.get(username)?.get(2) ?: "";
-        return username.equals(rusername) && password.equals(rpassword);
+    private var validation = Validation()
+
+    fun validateLoginCredentials() : Boolean{
+        return validation.validateLogin(username,password);
     }
+
+    fun login() : UserRegistration{
+        return loginUserCheck(username,password)
+    }
+
+
+
 
 }

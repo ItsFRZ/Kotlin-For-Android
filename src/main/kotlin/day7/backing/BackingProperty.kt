@@ -19,6 +19,7 @@ class Human(private var _name : String,private var _age : Int){
 
 
 
+
     fun info(){
         println("$_name , $_age")
     }

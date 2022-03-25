@@ -7,8 +7,7 @@ enum class RestaurantType{
 }
 
 data class Restaurant(
-        var sellerName : String,
-        var sellerEmail : String,
+        var contactId : String,
         var restaurantName : String,
         var restaurantType : String,
         var restaurantAddress : String,

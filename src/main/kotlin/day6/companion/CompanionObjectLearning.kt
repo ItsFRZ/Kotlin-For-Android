@@ -27,7 +27,7 @@ fun main(){
 }
 
 class APICounter{
-    companion object{
+     internal companion object{
         var totalApiHit : Int = 0
         var registration : Int = 0
 

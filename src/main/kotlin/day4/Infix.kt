@@ -21,7 +21,10 @@ infix fun Hero.showWith(power : String){
 
 fun main(){
 
-    var spidy = Hero("Crawling")
-    spidy showWith "Webbings"
-}
+    val spidy = Hero("Crawling")
 
+    spidy showWith "Webbings"
+    spidy showWith "fly"
+
+        
+}
