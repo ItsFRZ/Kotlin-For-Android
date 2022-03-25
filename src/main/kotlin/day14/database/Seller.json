@@ -146,6 +146,93 @@
     },
     {
         "contactId": "4",
+        "noOfTables": "2",
+        "restaurantAddress": "Demo Address",
+        "restaurantName": "DemoOne",
+        "restaurantType": "CasualDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "2",
+        "restaurantAddress": "Demo Address",
+        "restaurantName": "DemoTwo",
+        "restaurantType": "CasualDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "2",
+        "restaurantAddress": "Park Avenue",
+        "restaurantName": "DemoThree",
+        "restaurantType": "FineDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "1",
+        "restaurantAddress": "Beside Me",
+        "restaurantName": "DemoFour",
+        "restaurantType": "FamilyStyle",
+        "tables": [{
+            "bookedBy": "NA",
+            "bookedDate": "NA",
+            "isBooked": "false",
+            "seats": "2",
+            "tableId": "1"
+        }],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
         "noOfTables": "3",
         "restaurantAddress": "Nagpur, Maharashtra",
         "restaurantName": "Robin's Open Garden Restaurant",
@@ -315,17 +402,120 @@
     },
     {
         "contactId": "4",
-        "noOfTables": "1",
-        "restaurantAddress": "Unknown Address",
+        "noOfTables": "2",
+        "restaurantAddress": "Demo Address",
         "restaurantName": "DemoTwo",
+        "restaurantType": "CasualDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "2",
+        "restaurantAddress": "Park Avenue",
+        "restaurantName": "DemoThree",
+        "restaurantType": "FineDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "1",
+        "restaurantAddress": "Beside Me",
+        "restaurantName": "DemoFour",
         "restaurantType": "FamilyStyle",
         "tables": [{
             "bookedBy": "NA",
             "bookedDate": "NA",
             "isBooked": "false",
-            "seats": "4",
+            "seats": "2",
             "tableId": "1"
         }],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "3",
+        "restaurantAddress": "Nagpur",
+        "restaurantName": "DemoFive",
+        "restaurantType": "FamilyStyle",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "5",
+                "tableId": "2"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "6",
+                "tableId": "3"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "4",
+        "noOfTables": "2",
+        "restaurantAddress": "Nagpur",
+        "restaurantName": "DemoSix",
+        "restaurantType": "FamilyStyle",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            }
+        ],
         "tablesBooked": "0"
     }
 ]

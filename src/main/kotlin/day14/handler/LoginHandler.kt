@@ -7,9 +7,12 @@ import day14.model.registration.UserRegistration
 import org.json.JSONArray
 
 
+
+
 fun loginHandler(username:String, password : String) : UserRegistration{
 
-    LoadRestaurantData();
+    LoadRestaurantData()
+
     val loadALLData = LoadData();
     val getAllData = loadALLData.getUserList();
     val userData : HashMap <String,String> = HashMap();

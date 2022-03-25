@@ -12,6 +12,7 @@ import java.io.File
 fun getAllRestaurantInfoForUser(contactId : String){
 
 
+    LoadRestaurantData();
     for (i in 0 until RESTAURANT_DB.size){
         val res = RESTAURANT_DB[i]
         if(res.contactId.equals(contactId))
@@ -131,7 +132,10 @@ fun saveRestaurantInfo(contactId: String ,rname : String,rtype : String,raddress
 
         val file = File(SELLER)
         if(file.exists())
+        {
             file.delete()
+            RESTAURANT_DB.clear();
+        }
 
 
 
