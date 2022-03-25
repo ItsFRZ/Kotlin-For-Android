@@ -243,3 +243,11 @@ fun addNewTableInFile(contactId: String,restaurantName : String,seats : String){
 
 }
 
+
+// Print All Booking Stats
+
+fun printAllBookingsForUser(contactId : String){
+    getBookingHistoryForSeller(contactId);
+}
+
+

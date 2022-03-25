@@ -25,10 +25,9 @@ class SellerUserInterface (private var user: UserRegistration){
       println("Press 1 to Add new Restaurant")
       println("Press 2 to Remove Restaurant")
       println("Press 3 to Add New Table In Existing Restaurant");
-      println("Press 4 to Remove Table From Existing Restaurant")
-      println("Press 5 to Booking's Status")
-      println("Press 6 to Logout")
-      println("Press 7 to Exit")
+      println("Press 4 to Booking's Status")
+      println("Press 5 to Logout")
+      println("Press 6 to Exit")
       var choice : Int = 10;
       try {
          choice = readLine()?.toInt() ?: 7
@@ -56,22 +55,22 @@ class SellerUserInterface (private var user: UserRegistration){
             addNewTable();
          }
          4->{
-
+            bookingStatus();
          }
          5->{
-
-         }
-
-         6->{
             logoutSeller();
          }
-         7 -> {
+         6 -> {
             exitProcess(1)
          }
          else -> {
             run()
          }
       }
+   }
+
+   private fun bookingStatus() {
+      restaurant.getAllBookings(user.contactId);
    }
 
    private fun addNewTable() {

@@ -7,13 +7,6 @@ data class Booking(
         var restaurantName : String,
         var sellerId : String,
         var bookedDate : String,
+        var cancelledDate: String
         )
 
-
-data class Cancellation(
-    var username : String,
-    var userId : String,
-    var restaurantName : String,
-    var sellerId : String,
-    var cancelledDate : String,
-    )

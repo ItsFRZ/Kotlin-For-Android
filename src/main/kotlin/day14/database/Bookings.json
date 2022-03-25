@@ -1,0 +1,24 @@
+[
+
+	{
+		"username": "Akash",
+		"userId": "1",
+		"restaurantName": "Robin's Open Garden Restaurant",
+		"sellerId" : "4",
+		"bookedDate": "26/03/2022",
+		"cancelledDate": ""
+	},
+
+	{
+		"username": "Aqsa",
+		"userId": "2",
+		"restaurantName": "Kevin's Family Bistro",
+		"sellerId" : "5",
+		"bookedDate": "27/03/2022",
+		"cancelledDate": "26/03/2022"
+	}
+
+
+
+
+]
