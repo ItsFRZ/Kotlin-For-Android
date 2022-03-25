@@ -64,7 +64,7 @@ class SellerUserInterface (private var user: UserRegistration){
    fun removeRestaurant() {
       println("Enter Restaurant name ?")
       var restaurantName : String = readLine().toString().trim()
-//   RestaurantController(currentUser).removeRestaurant(restaurantName);
+      restaurant.removeRestaurant(restaurantName);
    }
 
    fun addNewRestaurant() {

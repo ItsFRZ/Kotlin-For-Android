@@ -186,6 +186,7 @@ class LoadData(){
 class LoadRestaurantData(){
 
     init{
+        RESTAURANT_DB.clear()
         loadRestaurantList();
     }
 

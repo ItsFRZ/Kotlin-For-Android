@@ -5,7 +5,7 @@ import day14.model.registration.UserRegistration
 import day14.handler.getAllRestaurantInfoForUser
 import day14.model.operation.Table
 
-//import day14.handler.removeRestaurantFromDb
+import day14.handler.removeRestaurantFromDb
 import day14.handler.saveRestaurantInfo
 //import day14.model.operation.Table
 
@@ -22,8 +22,8 @@ class RestaurantController(private var user : UserRegistration) {
         saveRestaurantInfo(contactId,rname,rtype,raddress,rTableCount,rTables);
     }
 
-//    fun removeRestaurant(rname : String){
-//        removeRestaurantFromDb(username,rname);
-//    }
+    fun removeRestaurant(rname : String){
+        removeRestaurantFromDb(user.contactId,rname);
+    }
 
 }

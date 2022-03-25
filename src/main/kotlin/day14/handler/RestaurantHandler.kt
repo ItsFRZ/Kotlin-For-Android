@@ -39,44 +39,6 @@ fun gracefullyDisplayRestaurant(res: Restaurant) {
 
 
 
-// Loading JSON Data from file into Data Structure
-
-//fun loadRestaurantData(){
-//    val file = File(SELLER);
-//    if(!file.exists())
-//        return;
-//
-//    val allData = readData(SELLER);
-//    if(allData.length <= 0)
-//        return;
-//
-//    RESTAURANT_DB = getMappedData(allData)
-//
-//}
-
-//fun getMappedData(allData: String): ArrayList<Restaurant> {
-//
-//    val jsonArray = JSONArray(allData);
-//    var data = ArrayList<Restaurant>();
-//    for(i in 0 until jsonArray.length()){
-//
-//        val jsonObject = jsonArray.getJSONObject(i)
-//        val sellerName = jsonObject.getString("sellerName")
-//        val sellerEmail = jsonObject.getString("sellerEmail")
-//        val restaurantName = jsonObject.getString("restaurantName")
-//        val restaurantType = jsonObject.getString("restaurantType")
-//        val restaurantAddress = jsonObject.getString("restaurantAddress")
-//        val noOfTables = jsonObject.getString("noOfTables")
-//        val tablesBooked = jsonObject.getString("tablesBooked")
-//        val tables : ArrayList<Table> = getTablesData(jsonObject.getJSONArray("tables"))
-//       data.add(Restaurant(sellerName,sellerEmail,restaurantName,restaurantType,restaurantAddress,noOfTables,tablesBooked,tables))
-//
-//
-//    }
-//
-//    return data;
-//}
-
 fun getTablesData(jsonArray: JSONArray): ArrayList<Table> {
 
     val tables = ArrayList<Table>();
@@ -134,7 +96,6 @@ fun saveRestaurantInfo(contactId: String ,rname : String,rtype : String,raddress
         if(file.exists())
         {
             file.delete()
-            RESTAURANT_DB.clear();
         }
 
 
@@ -165,49 +126,56 @@ fun setTablesData(tables: ArrayList<Table>): JSONArray{
 }
 
 // Remove restaurant from DB
-//fun removeRestaurantFromDb(username : String,rname : String){
-//    loadRestaurantData()
-//    val users = getUserList();
-//
-//    var myUser  = users.get(username);
-//
-//
-//    var isRemoved : Boolean = false
-//
-//    if(myUser != null) {
-//
-//        for (i in 0 until RESTAURANT_DB.size){
-//            val restaurant = RESTAURANT_DB.get(i);
-//            println(restaurant)
-//            if(rname.equals(restaurant.restaurantName) && username.equals(restaurant.sellerName)){
-//
-//                RESTAURANT_DB.removeAt(i)
-//                isRemoved = true;
-//                break;
-//            }
-//        }
-//
-//    }
-//
-//
-//    if(isRemoved){
-//
-//        var jsonArray = JSONArray();
-//        if(RESTAURANT_DB.size > 0){
-//            for(i in 0 until RESTAURANT_DB.size){
-//                val jsonObject  = JSONObject(RESTAURANT_DB.get(i));
-//
-//                jsonArray.put(jsonObject);
-//
-//            }
-//        }
-//
-//        val file = File(SELLER)
-//        if(file.exists())
-//            file.delete()
-//
-//        writeData(SELLER,jsonArray.toString())
-//    }
-//
-//
-//}
+fun removeRestaurantFromDb(contactId: String,rname : String){
+    LoadRestaurantData();
+
+    var isRemoved : Boolean = false
+
+
+
+    for (i in 0 until RESTAURANT_DB.size){
+        val restaurant = RESTAURANT_DB.get(i);
+//        println(restaurant)
+        if(rname.equals(restaurant.restaurantName) && contactId.equals(restaurant.contactId)){
+            RESTAURANT_DB.removeAt(i)
+            isRemoved = true;
+            break;
+        }
+    }
+
+
+
+    if(isRemoved){
+
+        var jsonArray = JSONArray();
+        if(RESTAURANT_DB.size > 0){
+            for(i in 0 until RESTAURANT_DB.size){
+                val jsonObject  = JSONObject();
+                val res = RESTAURANT_DB.get(i);
+
+
+                jsonObject.put("contactId",res.contactId);
+                jsonObject.put("restaurantName",res.restaurantName)
+                jsonObject.put("restaurantType",res.restaurantType)
+                jsonObject.put("restaurantAddress",res.restaurantAddress)
+                jsonObject.put("noOfTables",res.noOfTables)
+                jsonObject.put("tablesBooked",res.tablesBooked)
+                val tables : JSONArray = setTablesData(res.tables);
+                jsonObject.put("tables",tables)
+
+
+
+                jsonArray.put(jsonObject);
+
+            }
+        }
+
+        val file = File(SELLER)
+        if(file.exists())
+            file.delete()
+
+        writeData(SELLER,jsonArray.toString(4))
+    }
+
+
+}
