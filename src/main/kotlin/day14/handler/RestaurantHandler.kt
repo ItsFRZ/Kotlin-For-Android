@@ -103,10 +103,29 @@ fun saveRestaurantInfo(contactId: String ,rname : String,rtype : String,raddress
         var jsonArray = JSONArray();
         if(RESTAURANT_DB.size > 0){
             for(i in 0 until RESTAURANT_DB.size){
-                val jsonObject  = JSONObject(RESTAURANT_DB.get(i));
+                val res : Restaurant = RESTAURANT_DB.get(i)
+
+
+                val jsonObject  = JSONObject();
+
+
+
+
+                jsonObject.put("contactId",res.contactId);
+                jsonObject.put("restaurantName",res.restaurantName)
+                jsonObject.put("restaurantType",res.restaurantType)
+                jsonObject.put("restaurantAddress",res.restaurantAddress)
+                jsonObject.put("noOfTables",res.noOfTables)
+                jsonObject.put("tablesBooked",res.tablesBooked)
+                val tables : JSONArray = setTablesData(res.tables);
+                jsonObject.put("tables",tables)
+
+
+
+
 
                 jsonArray.put(jsonObject);
-                println(jsonObject)
+//                println(jsonObject)
             }
         }
 
@@ -114,11 +133,31 @@ fun saveRestaurantInfo(contactId: String ,rname : String,rtype : String,raddress
         if(file.exists())
             file.delete()
 
-        writeData(SELLER,jsonArray.toString())
+
+
+        writeData(SELLER,jsonArray.toString(4))
 
 
 
 
+}
+
+fun setTablesData(tables: ArrayList<Table>): JSONArray{
+
+    val jsonArray = JSONArray()
+    for (table in tables){
+
+        val jsonObject = JSONObject()
+        jsonObject.put("tableId",table.tableId)
+        jsonObject.put("isBooked",table.isBooked)
+        jsonObject.put("seats",table.seats)
+        jsonObject.put("bookedDate",table.bookedDate)
+        jsonObject.put("bookedBy",table.bookedBy)
+
+        jsonArray.put(jsonObject);
+
+    }
+    return jsonArray;
 }
 
 // Remove restaurant from DB
