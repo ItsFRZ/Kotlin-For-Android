@@ -32,7 +32,7 @@
     },
     {
         "contactId": "5",
-        "noOfTables": "4",
+        "noOfTables": "6",
         "restaurantAddress": "Mumbai, Maharashtra",
         "restaurantName": "Kevin's Family Bistro",
         "restaurantType": "Family",
@@ -42,28 +42,42 @@
                 "bookedDate": "3/23/2022",
                 "isBooked": "true",
                 "seats": "5",
-                "tableId": "4"
+                "tableId": "1"
             },
             {
                 "bookedBy": "",
                 "bookedDate": "",
                 "isBooked": "false",
                 "seats": "5",
-                "tableId": "5"
+                "tableId": "2"
             },
             {
                 "bookedBy": "",
                 "bookedDate": "",
                 "isBooked": "false",
                 "seats": "7",
-                "tableId": "6"
+                "tableId": "3"
             },
             {
                 "bookedBy": "Rishab Pal",
                 "bookedDate": "3/23/2022",
                 "isBooked": "true",
                 "seats": "3",
-                "tableId": "7"
+                "tableId": "4"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "8",
+                "tableId": "5"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "10",
+                "tableId": "6"
             }
         ],
         "tablesBooked": "2"
@@ -146,7 +160,7 @@
     },
     {
         "contactId": "4",
-        "noOfTables": "2",
+        "noOfTables": "5",
         "restaurantAddress": "Demo Address",
         "restaurantName": "DemoOne",
         "restaurantType": "CasualDining",
@@ -164,6 +178,27 @@
                 "isBooked": "false",
                 "seats": "4",
                 "tableId": "2"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "6",
+                "tableId": "3"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "10",
+                "tableId": "4"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "12",
+                "tableId": "5"
             }
         ],
         "tablesBooked": "0"

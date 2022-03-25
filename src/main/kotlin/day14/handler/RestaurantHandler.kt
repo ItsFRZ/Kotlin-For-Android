@@ -3,7 +3,6 @@ package day14.handler
 
 import day14.model.operation.Restaurant
 import day14.model.operation.Table
-
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -29,7 +28,7 @@ fun gracefullyDisplayRestaurant(res: Restaurant) {
     for(table in res.tables){
         println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
         println("Table ${table.tableId} :- ")
-        println("Booked Status  :- ${table.isBooked}, Total Seats ${table.tableId}:- ${table.seats}, Booked Date :- ${table.bookedDate}, Booked By :- ${table.bookedBy}")
+        println("Booked Status  :- ${table.isBooked}, Total Seats :- ${table.seats}, Booked Date :- ${table.bookedDate}, Booked By :- ${table.bookedBy}")
         println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
     }
     println()
@@ -179,3 +178,68 @@ fun removeRestaurantFromDb(contactId: String,rname : String){
 
 
 }
+
+// Add table in existing restaurant
+fun addNewTableInFile(contactId: String,restaurantName : String,seats : String){
+
+    LoadRestaurantData();
+
+    var isPresent : Boolean = false
+
+
+    for (i in 0 until RESTAURANT_DB.size){
+        val restaurant = RESTAURANT_DB.get(i);
+//        println(restaurant)
+        if(restaurantName.equals(restaurant.restaurantName) && contactId.equals(restaurant.contactId)){
+            isPresent = true;
+
+            val fTable = restaurant.tables
+            val tableId = (fTable.size+1).toString()
+            val isBooked = "false"
+            val chairs : String = seats
+            val bookedDate : String = "NA"
+            val bookedBy : String = "NA"
+
+            val myTable = Table(tableId,isBooked,chairs,bookedDate,bookedBy)
+            RESTAURANT_DB.get(i).tables.add(myTable)
+            RESTAURANT_DB.get(i).noOfTables = RESTAURANT_DB.get(i).tables.size.toString();
+            break;
+        }
+    }
+
+    if(isPresent){
+
+
+        var jsonArray = JSONArray();
+        if(RESTAURANT_DB.size > 0) {
+            for (i in 0 until RESTAURANT_DB.size) {
+                val jsonObject = JSONObject();
+                val res = RESTAURANT_DB.get(i);
+
+
+                jsonObject.put("contactId", res.contactId);
+                jsonObject.put("restaurantName", res.restaurantName)
+                jsonObject.put("restaurantType", res.restaurantType)
+                jsonObject.put("restaurantAddress", res.restaurantAddress)
+                jsonObject.put("noOfTables", res.noOfTables)
+                jsonObject.put("tablesBooked", res.tablesBooked)
+                val tables: JSONArray = setTablesData(res.tables);
+                jsonObject.put("tables", tables)
+
+                jsonArray.put(jsonObject);
+            }
+        }
+
+
+        val file = File(SELLER)
+        if(file.exists())
+            file.delete()
+
+        writeData(SELLER,jsonArray.toString(4))
+
+    } else{
+            println("$restaurantName is not present in database")
+        }
+
+}
+

@@ -1,13 +1,14 @@
 package day14.contoller
 
+import day14.handler.addNewTableInFile
 import day14.model.registration.UserRegistration
 
 import day14.handler.getAllRestaurantInfoForUser
-import day14.model.operation.Table
+
 
 import day14.handler.removeRestaurantFromDb
 import day14.handler.saveRestaurantInfo
-//import day14.model.operation.Table
+import day14.model.operation.Table
 
 class RestaurantController(private var user : UserRegistration) {
 
@@ -25,5 +26,11 @@ class RestaurantController(private var user : UserRegistration) {
     fun removeRestaurant(rname : String){
         removeRestaurantFromDb(user.contactId,rname);
     }
+
+
+    fun addTableRestaurant(contactId: String,restaurantName : String,seats:String){
+        addNewTableInFile(contactId,restaurantName,seats)
+    }
+
 
 }
