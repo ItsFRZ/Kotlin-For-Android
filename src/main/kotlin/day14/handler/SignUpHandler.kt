@@ -31,11 +31,12 @@ fun persistUser(user : User) : Boolean{
     if(!previousData.isEmpty())
     {
         val jsonArray = JSONArray(previousData);
-        finalData = jsonArray.put(jsonObject).toString();
+        finalData = jsonArray.put(jsonObject).toString(4);
 
     }else{
 
-        finalData = "[$jsonObject]"
+        val jsonArray = JSONArray().put(jsonObject)
+        finalData = jsonArray.toString(4)
     }
 
 

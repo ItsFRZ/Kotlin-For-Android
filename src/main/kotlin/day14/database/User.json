@@ -1,55 +1,23 @@
-[{
-	"password": "akash1234",
-	"contactId": "1",
-	"contactType": "Customer",
-	"email": "akash@gmail.com",
-	"username": "Akash"
-}, {
-	"password": "aqsa1234",
-	"contactId": "2",
-	"contactType": "Customer",
-	"email": "aqsa@gmail.com",
-	"username": "Aqsa"
-}, {
-	"password": "admin101",
-	"contactId": "3",
-	"contactType": "Admin",
-	"email": "admin@system.com",
-	"username": "Alexa"
-}, {
-	"password": "robin1234",
-	"contactId": "4",
-	"contactType": "Seller",
-	"email": "robin@gmail.com",
-	"username": "Robin"
-}, {
-	"password": "kevin1234",
-	"contactId": "5",
-	"contactType": "Seller",
-	"email": "kevin@gmail.com",
-	"username": "Kevin"
-}, {
-	"password": "faraz1234",
-	"contactId": "6",
-	"contactType": "Customer",
-	"email": "faraz@gmail.com",
-	"username": "Faraz"
-}, {
-	"password": "akshay1234",
-	"contactId": "7",
-	"contactType": "Customer",
-	"email": "akshay@gmail.com",
-	"username": "Akshay"
-}, {
-	"password": "samson12345",
-	"contactId": "8",
-	"contactType": "Customer",
-	"email": "samson@gmail.com",
-	"username": "Samson"
-}, {
-	"password": "nilson1234",
-	"contactId": "9",
-	"contactType": "Seller",
-	"email": "nilson@gmail.com",
-	"username": "Nilson"
-}]
+[
+    {
+        "contactId": "1",
+        "contactType": "Customer",
+        "email": "faraz@gmail.com",
+        "password": "faraz1234",
+        "username": "Faraz"
+    },
+    {
+        "contactId": "3",
+        "contactType": "Seller",
+        "email": "robin@gmail.com",
+        "password": "robin1234",
+        "username": "Robin"
+    },
+    {
+        "contactId": "7",
+        "contactType": "Customer",
+        "email": "samson@gmail.com",
+        "password": "samson1234",
+        "username": "Samson"
+    }
+]

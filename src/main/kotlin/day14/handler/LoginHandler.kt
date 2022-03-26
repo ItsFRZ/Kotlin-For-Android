@@ -197,21 +197,28 @@ class LoadRestaurantData(){
         if (rawData.length <= 0)
             return RESTAURANT_DB;
 
-        val jsonArray = JSONArray(rawData);
-        for (i in 0 until jsonArray.length()){
+        try{
 
-            val jsonObject = jsonArray.getJSONObject(i);
-            val contactId = jsonObject.getString("contactId")
-            val restaurantName = jsonObject.getString("restaurantName")
-            val restaurantType = jsonObject.getString("restaurantType")
-            val restaurantAddress = jsonObject.getString("restaurantAddress")
-            val noOfTables = jsonObject.getString("noOfTables")
-            val tablesBooked = jsonObject.getString("tablesBooked")
-            val tables : ArrayList<Table> = getAllTables(jsonObject.getJSONArray("tables"))
+            val jsonArray = JSONArray(rawData);
+            for (i in 0 until jsonArray.length()){
 
-            RESTAURANT_DB.add(Restaurant(contactId,restaurantName,restaurantType,restaurantAddress,noOfTables,tablesBooked,tables));
+                val jsonObject = jsonArray.getJSONObject(i);
+                val contactId = jsonObject.getString("contactId")
+                val restaurantName = jsonObject.getString("restaurantName")
+                val restaurantType = jsonObject.getString("restaurantType")
+                val restaurantAddress = jsonObject.getString("restaurantAddress")
+                val noOfTables = jsonObject.getString("noOfTables")
+                val tablesBooked = jsonObject.getString("tablesBooked")
+                val tables : ArrayList<Table> = getAllTables(jsonObject.getJSONArray("tables"))
 
+                RESTAURANT_DB.add(Restaurant(contactId,restaurantName,restaurantType,restaurantAddress,noOfTables,tablesBooked,tables));
+
+            }
+
+        }catch (e : Exception){
+            println(e)
         }
+
         return RESTAURANT_DB;
     }
 

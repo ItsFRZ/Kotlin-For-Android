@@ -1,8 +1,12 @@
 package day14.handler
 
 import day14.model.operation.Booking
+import day14.model.operation.Restaurant
+import day14.model.registration.UserRegistration
 
 import org.json.JSONArray
+import org.json.JSONObject
+import java.io.File
 
 
 fun getBookingHistoryForSeller(contactId : String){
@@ -26,8 +30,6 @@ fun getBookingHistoryForSeller(contactId : String){
 
     println("---------------------------------------------------*****END*****---------------------------------------------------\n")
 }
-
-
 
 fun getBookingHistoryForAdmin(contactType : String){
     LoadBookingHistory();
@@ -70,6 +72,62 @@ fun checkBookingStats(booking: Booking): Int {
 
 fun gracefullyDisplayBookings(booking: Booking) {
     println("Username :- ${booking.username}, Booked Restaurant Name :- ${booking.restaurantName}, Booking Date :- ${booking.bookedDate}")
+}
+
+fun storeSnapshot(user : UserRegistration, res : Restaurant,date : String){
+    LoadBookingHistory();
+
+    var isObjectSet : Boolean = false;
+    val previousData : String = readData(BOOKING);
+
+
+    var finalData : String = ""
+
+    if(!previousData.isEmpty())
+    {
+        val jsonArray = JSONArray(previousData);
+        val jsonObject = setDataInObject(user,res,date)
+        finalData = jsonArray.put(jsonObject).toString(4);
+        isObjectSet = true
+
+    }else{
+        val jsonObject = setDataInObject(user,res,date)
+        val jsonArray = JSONArray().put(jsonObject)
+        finalData = jsonArray.toString(4)
+        isObjectSet = true
+    }
+
+
+    if(isObjectSet){
+
+        var file = File(BOOKING)
+        if (file.exists())
+            file.delete()
+
+        writeData(BOOKING,finalData)
+    }
+
+
+
+
+
+
+}
+
+fun setDataInObject(user: UserRegistration, res: Restaurant, date: String): JSONObject {
+
+    var jsonObject = JSONObject();
+    try{
+        jsonObject.put("username",user.username)
+        jsonObject.put("userId",user.contactId)
+        jsonObject.put("restaurantName",res.restaurantName)
+        jsonObject.put("sellerId",res.contactId)
+        jsonObject.put("bookedDate",date)
+        jsonObject.put("cancelledDate","false")
+    }catch (e : Exception) {
+        println(e)
+    }
+    return jsonObject;
 }
 
 class LoadBookingHistory(){
