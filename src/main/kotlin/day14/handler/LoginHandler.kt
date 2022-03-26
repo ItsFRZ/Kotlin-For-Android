@@ -50,6 +50,8 @@ class LoadData(){
 
 
     init {
+        //Check this is also
+        USER_DB.clear();
         loadUserList()
     }
 
