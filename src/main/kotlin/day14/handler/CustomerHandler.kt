@@ -60,7 +60,7 @@ fun gracefullyDisplayRestaurantPreferrence(res: Restaurant, seats: String) : Boo
     println("---------------------------***${res.restaurantName}***-----------------------------------")
     println("Restaurant Address :- ${res.restaurantAddress} , Restaurant Type :- ${res.restaurantType}")
     for(table in res.tables){
-        if(table.isBooked.equals("false") && table.seats.equals(seats))
+        if(table.isBooked.equals("false") && table.seats > seats)
         {
             println("Table id ${table.tableId} is available with seats ${table.seats}")
             tableCount += 1;
@@ -89,7 +89,7 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
     var isDone = false
 
     for(restaurant in RESTAURANT_DB){
-        if(restaurant.restaurantAddress.contains(address)){
+        if(restaurant.restaurantAddress.contains(address) && restaurant.restaurantName.contains(restaurantName)){
 
 
 

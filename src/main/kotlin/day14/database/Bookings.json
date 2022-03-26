@@ -1,18 +1,8 @@
-[
-    {
-        "bookedDate": "2022/03/27",
-        "cancelledDate": "2022/03/26",
-        "restaurantName": "Robin's Family Restaurant",
-        "sellerId": "2",
-        "userId": "1",
-        "username": "Faraz"
-    },
-    {
-        "bookedDate": "2022/03/28",
-        "cancelledDate": "false",
-        "restaurantName": "Robin's Family Restaurant",
-        "sellerId": "2",
-        "userId": "7",
-        "username": "Samson"
-    }
-]
+[{
+    "bookedDate": "2022/03/27",
+    "cancelledDate": "false",
+    "restaurantName": "Rob Chinese Restaurant",
+    "sellerId": "1",
+    "userId": "2",
+    "username": "Faraz"
+}]

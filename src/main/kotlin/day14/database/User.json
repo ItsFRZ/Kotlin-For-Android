@@ -1,30 +1,23 @@
 [
     {
         "contactId": "1",
-        "contactType": "Customer",
-        "email": "faraz@gmail.com",
-        "password": "faraz1234",
-        "username": "Faraz"
-    },
-    {
-        "contactId": "2",
         "contactType": "Seller",
         "email": "robin@gmail.com",
         "password": "robin1234",
         "username": "Robin"
     },
     {
-        "contactId": "7",
+        "contactId": "2",
         "contactType": "Customer",
-        "email": "samson@gmail.com",
-        "password": "samson1234",
-        "username": "Samson"
+        "email": "faraz@gmail.com",
+        "password": "faraz1234",
+        "username": "Faraz"
     },
     {
-        "contactId": "7",
-        "contactType": "Admin",
-        "email": "samir@gmail.com",
-        "password": "samir1234",
-        "username": "Samir"
+        "contactId": "3",
+        "contactType": "Customer",
+        "email": "simon@gmail.com",
+        "password": "simon1234",
+        "username": "Simon"
     }
 ]
