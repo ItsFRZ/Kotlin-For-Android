@@ -88,8 +88,9 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
     var isDone = false
 
     for(restaurant in RESTAURANT_DB){
-
         if(restaurant.restaurantAddress.contains(address)){
+
+
 
             var fetchedTableId : String= getTableId(restaurant,seats)
             if(!fetchedTableId.isEmpty())
@@ -102,9 +103,9 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
                     val oldTable: Table = getTableFromFetchedId(restaurant,fetchedTableId)
                     if(!oldTable.tableId.isEmpty()){
 
-                        val table = modifyTable(oldTable,user,date)
-                        restaurant.tables.removeAt(fetchedTableId.toInt()-1);
-                        restaurant.tables.add(table);
+                        val table = modifyTable(fetchedTableId,oldTable,user,date)
+                        val removedIdx = removeTableFromRestaurant(restaurant,fetchedTableId);
+                        restaurant.tables.add(removedIdx,table)
                         restaurant.tablesBooked = setTablesBookedData(restaurant)
                         BookingController(user).saveAsBookingHistory(restaurant,date)
                         break;
@@ -116,8 +117,9 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
             }
 
 
-        }
 
+
+        }
     }
 
 
@@ -157,6 +159,31 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
     return false;
 }
 
+fun removeTableFromRestaurant(restaurant: Restaurant, fetchedTableId: String) : Int{
+    var idx = 0
+    for (table in restaurant.tables){
+        if (table.tableId.equals(fetchedTableId))
+        {
+            restaurant.tables.removeAt(idx)
+            return idx;
+        }
+        idx+=1;
+    }
+    return idx;
+}
+
+fun modifyTable(fetchedTableId: String, oldTable: Table, user: UserRegistration, date: String): Table {
+
+    val table : Table = Table(
+        fetchedTableId,
+        "true",
+        oldTable.seats,
+        date,
+        user.username
+    )
+    return table;
+}
+
 fun setTablesBookedData(restaurant: Restaurant): String {
     var tablesBooked = restaurant.tablesBooked.toInt()
     tablesBooked +=1
@@ -171,18 +198,6 @@ fun getTableFromFetchedId(restaurant: Restaurant, fetchedTableId: String): Table
     return Table("","","","","");
 }
 
-
-fun modifyTable(oldTable: Table, user: UserRegistration, date: String): Table {
-
-    val table : Table = Table(
-        oldTable.tableId,
-        "true",
-        oldTable.seats,
-        date,
-        user.username
-    )
-    return table
-}
 
 
 

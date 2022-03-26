@@ -7,14 +7,14 @@
         "username": "Faraz"
     },
     {
-        "contactId": "3",
+        "contactId": "2",
         "contactType": "Seller",
         "email": "robin@gmail.com",
         "password": "robin1234",
         "username": "Robin"
     },
     {
-        "contactId": "7",
+        "contactId": "14",
         "contactType": "Customer",
         "email": "samson@gmail.com",
         "password": "samson1234",

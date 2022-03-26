@@ -1,14 +1,14 @@
 [{
-    "contactId": "3",
+    "contactId": "2",
     "noOfTables": "3",
     "restaurantAddress": "Nagpur",
     "restaurantName": "Robin's Family Restaurant",
     "restaurantType": "FamilyStyle",
     "tables": [
         {
-            "bookedBy": "NA",
-            "bookedDate": "NA",
-            "isBooked": "false",
+            "bookedBy": "Faraz",
+            "bookedDate": "2022/03/27",
+            "isBooked": "true",
             "seats": "4",
             "tableId": "1"
         },
@@ -16,16 +16,16 @@
             "bookedBy": "Faraz",
             "bookedDate": "2022/03/26",
             "isBooked": "true",
-            "seats": "4",
-            "tableId": "1"
-        },
-        {
-            "bookedBy": "Faraz",
-            "bookedDate": "2022/03/27",
-            "isBooked": "true",
             "seats": "5",
             "tableId": "2"
+        },
+        {
+            "bookedBy": "Samson",
+            "bookedDate": "2022/03/27",
+            "isBooked": "true",
+            "seats": "6",
+            "tableId": "3"
         }
     ],
-    "tablesBooked": "2"
+    "tablesBooked": "3"
 }]

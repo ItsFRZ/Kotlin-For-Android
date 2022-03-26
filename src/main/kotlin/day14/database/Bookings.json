@@ -3,7 +3,7 @@
         "bookedDate": "2022/03/26",
         "cancelledDate": "false",
         "restaurantName": "Robin's Family Restaurant",
-        "sellerId": "3",
+        "sellerId": "2",
         "userId": "1",
         "username": "Faraz"
     },
@@ -11,7 +11,15 @@
         "bookedDate": "2022/03/27",
         "cancelledDate": "false",
         "restaurantName": "Robin's Family Restaurant",
-        "sellerId": "3",
+        "sellerId": "2",
+        "userId": "14",
+        "username": "Samson"
+    },
+    {
+        "bookedDate": "2022/03/27",
+        "cancelledDate": "false",
+        "restaurantName": "Robin's Family Restaurant",
+        "sellerId": "2",
         "userId": "1",
         "username": "Faraz"
     }
