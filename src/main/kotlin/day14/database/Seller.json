@@ -6,26 +6,26 @@
     "restaurantType": "FamilyStyle",
     "tables": [
         {
-            "booked": "false",
-            "bookedBy": "NA",
-            "bookedDate": "NA",
+            "bookedBy": "Samson",
+            "bookedDate": "2022/03/28",
+            "isBooked": "true",
             "seats": "4",
             "tableId": "1"
         },
         {
-            "booked": "false",
             "bookedBy": "NA",
             "bookedDate": "NA",
+            "isBooked": "false",
             "seats": "5",
             "tableId": "2"
         },
         {
-            "booked": "false",
             "bookedBy": "NA",
             "bookedDate": "NA",
+            "isBooked": "false",
             "seats": "6",
             "tableId": "3"
         }
     ],
-    "tablesBooked": "1"
+    "tablesBooked": "2"
 }]

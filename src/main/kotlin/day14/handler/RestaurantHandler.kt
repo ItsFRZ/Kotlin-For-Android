@@ -275,11 +275,19 @@ fun resetRestaurantTable(user: UserRegistration, restaurantName: String, bookedD
             }
 
         }
+        val jsonObject = JSONObject();
+        jsonObject.put("contactId", restaurant.contactId);
+        jsonObject.put("restaurantName", restaurant.restaurantName)
+        jsonObject.put("restaurantType", restaurant.restaurantType)
+        jsonObject.put("restaurantAddress", restaurant.restaurantAddress)
+        jsonObject.put("noOfTables", restaurant.noOfTables)
+        jsonObject.put("tablesBooked", restaurant.tablesBooked)
+        val tables: JSONArray = setTablesData(restaurant.tables);
+        jsonObject.put("tables", tables)
 
 
 
 
-        val jsonObject = JSONObject(restaurant)
         jsonArray.put(jsonObject)
 
 
