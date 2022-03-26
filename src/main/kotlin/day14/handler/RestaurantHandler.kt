@@ -3,6 +3,7 @@ package day14.handler
 
 import day14.model.operation.Restaurant
 import day14.model.operation.Table
+import day14.model.registration.UserRegistration
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
@@ -250,4 +251,53 @@ fun printAllBookingsForUser(contactId : String){
     getBookingHistoryForSeller(contactId);
 }
 
+fun resetRestaurantTable(user: UserRegistration, restaurantName: String, bookedDate: String) : Boolean{
 
+    var isCleaned : Boolean = false
+    LoadRestaurantData();
+    val jsonArray = JSONArray();
+
+    for (restaurant in RESTAURANT_DB){
+
+        if(restaurant.restaurantName.equals(restaurantName)){
+            for (table in restaurant.tables){
+                if(table.bookedBy.equals(user.username) && table.bookedDate.equals(bookedDate))
+                {
+                    isCleaned = true;
+                    table.isBooked = "false"
+                    //Check this once
+                    table.bookedDate = "NA"
+                    table.bookedBy = "NA"
+
+
+                    break;
+                }
+            }
+
+        }
+
+
+
+
+        val jsonObject = JSONObject(restaurant)
+        jsonArray.put(jsonObject)
+
+
+
+    }
+
+    if (isCleaned){
+
+        val file = File(SELLER)
+        if(file.exists())
+            file.delete()
+
+        writeData(SELLER,jsonArray.toString(4))
+
+    }
+
+
+
+    return isCleaned
+
+}

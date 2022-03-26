@@ -29,5 +29,9 @@ class CustomerController(private var user : UserRegistration) {
         return customersBooking(user);
     }
 
+    fun cancelBooking(date: String, restaurantName: String) : Boolean {
+        return cancelBooking(user,date,restaurantName);
+    }
+
 }
 

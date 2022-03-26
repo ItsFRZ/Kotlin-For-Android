@@ -114,6 +114,65 @@ fun storeSnapshot(user : UserRegistration, res : Restaurant,date : String){
 
 }
 
+
+fun updateSnapshot(user : UserRegistration,restaurantName : String,bookedBy : String,bookedDate : String,cancellingDate : String) : Boolean{
+    LoadBookingHistory();
+
+
+    var isUpdated = false;
+    var isSaved = false;
+
+    // Update in Booking History
+    var idx = 0
+    for (myBooking in BOOKING_DB){
+        val fusername = myBooking.username;
+        val frestaurantName = myBooking.restaurantName
+        val fBookedDate = myBooking.bookedDate;
+        if(fusername.equals(bookedBy) && frestaurantName.equals(restaurantName) && fBookedDate.equals(bookedDate))
+        {
+            myBooking.cancelledDate = cancellingDate;
+            isUpdated = true
+            break;
+        }
+        idx+=1;
+    }
+
+
+    var isObjectSet : Boolean = false;
+
+
+    var finalData : String = ""
+
+    if(!BOOKING_DB.isEmpty())
+    {
+        val jsonArray = JSONArray();
+
+        for (booking in BOOKING_DB){
+            val jsonObject = JSONObject(booking);
+            jsonArray.put(jsonObject)
+        }
+
+
+
+        finalData = jsonArray.toString(4);
+        isObjectSet = true
+
+    }
+
+    if(isObjectSet){
+
+        var file = File(BOOKING)
+        if (file.exists())
+            file.delete()
+
+        writeData(BOOKING,finalData)
+        isSaved = true;
+    }
+
+    return isUpdated && isSaved;
+}
+
+
 fun setDataInObject(user: UserRegistration, res: Restaurant, date: String): JSONObject {
 
     var jsonObject = JSONObject();

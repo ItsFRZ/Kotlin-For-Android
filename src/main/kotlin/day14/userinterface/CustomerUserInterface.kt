@@ -54,7 +54,7 @@ class CustomerUserInterface (private var user: UserRegistration){
                 allBookingsInfo();
             }
             5->{
-
+                cancelBooking();
             }
             6->{
                 logoutCustomer();
@@ -66,6 +66,18 @@ class CustomerUserInterface (private var user: UserRegistration){
             else -> {
                 run()
             }
+        }
+    }
+
+    private fun cancelBooking() {
+        println("Please enter your booking date NOTE :- Date should be in (YYYY/MM/DD) format")
+        val date = readLine().toString()
+        println("Please enter restaurant name")
+        val restaurantName = readLine().toString();
+        if(customerController.cancelBooking(date,restaurantName)){
+           println("${user.username} you cancelled the booking of ${restaurantName}")
+        }else {
+            println("Internal Error OR Improper inputs failure")
         }
     }
 
@@ -113,33 +125,32 @@ class CustomerUserInterface (private var user: UserRegistration){
     }
 }
 
-fun searchRestaurant() {
-    println("Enter restaurant name ?")
-    var restaurantName : String = readLine().toString()
-    println("Enter restaurant address ?")
-    var restaurantLocation : String = readLine().toString()
+    fun searchRestaurant() {
+        println("Enter restaurant name ?")
+        var restaurantName : String = readLine().toString()
+        println("Enter restaurant address ?")
+        var restaurantLocation : String = readLine().toString()
 
-    customerController.searchRestaurant(restaurantName,restaurantLocation)
-}
-//
-//
-//fun logoutCustomer() {
-//    logoutUser("User")
-//}
-//
-//
-fun listAllRestaurantInfoForUser() {
-    customerController.displayAllRestaurantInfoToCustomer();
-}
+        customerController.searchRestaurant(restaurantName,restaurantLocation)
+    }
+
+    fun listAllRestaurantInfoForUser() {
+        customerController.displayAllRestaurantInfoToCustomer();
+    }
 
 
 
     private fun continueRun(){
         println("Do you want to continue ? (Y/y)")
         val ans = readLine().toString()
-//        if(continueCheck(ans))
-//            run()
+        if(continueCheck(ans))
+            run()
         return
     }
+
+    private fun continueCheck(ans: String): Boolean {
+        return ans.equals("Y") || ans.equals("y") || ans.equals("yes") || ans.contains("Yes");
+    }
+
 }
 

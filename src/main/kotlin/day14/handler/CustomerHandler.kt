@@ -1,6 +1,7 @@
 package day14.handler
 
 import day14.contoller.BookingController
+import day14.contoller.RestaurantController
 import day14.model.operation.Booking
 import day14.model.operation.Restaurant
 import day14.model.operation.Table
@@ -8,6 +9,8 @@ import day14.model.registration.UserRegistration
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 fun getAllRestaurantInfoForCustomer(contactId : String){
@@ -204,6 +207,7 @@ fun getTableId(restaurant: Restaurant, seats: String): String {
     return "";
 }
 
+// Display All bookings of customer
 fun customersBooking(user : UserRegistration){
     LoadBookingHistory();
     var totalBookings = 0;
@@ -232,3 +236,28 @@ fun displayAllBookingsGracefully(booking: Booking) {
     println("Date of Visiting/Booking :- ${booking.bookedDate}\n")
 }
 
+fun cancelBooking(user : UserRegistration,date : String,restaurantName : String) : Boolean{
+
+    var selledContactId = 0;
+    var customerContactId = user.contactId
+    var bookedBy = user.username;
+    var bookedDate = date;
+    var restaurantName = restaurantName;
+
+
+    // Finding & Updating Data in Booking History
+    val isUpdatedInBookingHistory : Boolean = updateBookingHistory(user,bookedBy,restaurantName,bookedDate);
+
+    // Finding & Updating Data in Restaurant
+    val isRestaurantTableClean : Boolean = updateBookedRestaurantTable(user,restaurantName,bookedDate);
+
+    return isUpdatedInBookingHistory && isRestaurantTableClean;
+}
+
+fun updateBookedRestaurantTable(user: UserRegistration, restaurantName: String, bookedDate: String): Boolean {
+    return RestaurantController(user).cancellBooking(user,restaurantName,bookedDate);
+}
+
+fun updateBookingHistory(user : UserRegistration,bookedBy: String, restaurantName: String, bookedDate: String): Boolean {
+    return BookingController(user).updateInBookingHistory(bookedBy,restaurantName,bookedDate);
+}

@@ -6,26 +6,26 @@
     "restaurantType": "FamilyStyle",
     "tables": [
         {
-            "bookedBy": "Faraz",
-            "bookedDate": "2022/03/27",
-            "isBooked": "true",
+            "booked": "false",
+            "bookedBy": "NA",
+            "bookedDate": "NA",
             "seats": "4",
             "tableId": "1"
         },
         {
-            "bookedBy": "Faraz",
-            "bookedDate": "2022/03/26",
-            "isBooked": "true",
+            "booked": "false",
+            "bookedBy": "NA",
+            "bookedDate": "NA",
             "seats": "5",
             "tableId": "2"
         },
         {
-            "bookedBy": "Samson",
-            "bookedDate": "2022/03/27",
-            "isBooked": "true",
+            "booked": "false",
+            "bookedBy": "NA",
+            "bookedDate": "NA",
             "seats": "6",
             "tableId": "3"
         }
     ],
-    "tablesBooked": "3"
+    "tablesBooked": "1"
 }]

@@ -15,6 +15,7 @@ class RestaurantController(private var user : UserRegistration) {
 
 
 
+
     fun addRestaurantOfUser(contactId: String,rname : String,rtype : String,raddress : String,rTableCount : String,rTables : ArrayList<Table>){
         saveRestaurantInfo(contactId,rname,rtype,raddress,rTableCount,rTables);
     }
@@ -30,6 +31,10 @@ class RestaurantController(private var user : UserRegistration) {
 
     fun getAllBookings(contactId: String){
         printAllBookingsForUser(contactId);
+    }
+
+    fun cancellBooking(user: UserRegistration, restaurantName: String, bookedDate: String): Boolean {
+        return resetRestaurantTable(user,restaurantName,bookedDate);
     }
 
 }

@@ -12,19 +12,5 @@
         "email": "robin@gmail.com",
         "password": "robin1234",
         "username": "Robin"
-    },
-    {
-        "contactId": "3",
-        "contactType": "Customer",
-        "email": "samson@gmail.com",
-        "password": "samson1234",
-        "username": "Samson"
-    },
-    {
-        "contactId": "4",
-        "contactType": "Customer",
-        "email": "akash@gmail.com",
-        "password": "akash1234",
-        "username": "Akash"
     }
 ]
