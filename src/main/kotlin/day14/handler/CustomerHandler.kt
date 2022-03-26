@@ -1,6 +1,7 @@
 package day14.handler
 
 import day14.contoller.BookingController
+import day14.model.operation.Booking
 import day14.model.operation.Restaurant
 import day14.model.operation.Table
 import day14.model.registration.UserRegistration
@@ -51,7 +52,6 @@ fun getPreferredRestaurantToCustomerByLocation(seats : String,address : String) 
     return availabilityFlag;
 }
 
-
 fun gracefullyDisplayRestaurantPreferrence(res: Restaurant, seats: String) : Boolean{
     var tableCount = 0;
     println("---------------------------***${res.restaurantName}***-----------------------------------")
@@ -78,8 +78,6 @@ fun gracefullyDisplayRestaurantPreferrence(res: Restaurant, seats: String) : Boo
         return true
     return false
 }
-
-// Booking Issue
 
 fun bookATable(user : UserRegistration,restaurantName: String,seats: String,address: String,date : String) : Boolean{
     // loading all restaurants
@@ -198,9 +196,6 @@ fun getTableFromFetchedId(restaurant: Restaurant, fetchedTableId: String): Table
     return Table("","","","","");
 }
 
-
-
-
 fun getTableId(restaurant: Restaurant, seats: String): String {
     for (table in restaurant.tables){
         if(table.seats.equals(seats))
@@ -209,5 +204,31 @@ fun getTableId(restaurant: Restaurant, seats: String): String {
     return "";
 }
 
+fun customersBooking(user : UserRegistration){
+    LoadBookingHistory();
+    var totalBookings = 0;
 
+
+    println("-------------------------------------------****${user.username}****-------------------------------------------\n")
+    for (booking in BOOKING_DB){
+        if(booking.userId.equals(user.contactId) && booking.cancelledDate.equals("false")){
+            displayAllBookingsGracefully(booking)
+            totalBookings += 1;
+        }
+    }
+
+    if (totalBookings > 0){
+        println("${user.username} you have $totalBookings bookings");
+    }else{
+        println("${user.username} you not have any bookings")
+    }
+    println("\n-------------------------------------------****END****-------------------------------------------")
+
+
+}
+
+fun displayAllBookingsGracefully(booking: Booking) {
+    println("Restaurant Name :- ${booking.restaurantName}")
+    println("Date of Visiting/Booking :- ${booking.bookedDate}\n")
+}
 

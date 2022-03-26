@@ -1,9 +1,6 @@
 package day14.contoller
 
-import day14.handler.bookATable
-import day14.handler.getAllRestaurantInfoForCustomer
-import day14.handler.getPreferredRestaurantToCustomer
-import day14.handler.getPreferredRestaurantToCustomerByLocation
+import day14.handler.*
 import day14.model.registration.UserRegistration
 
 
@@ -25,6 +22,11 @@ class CustomerController(private var user : UserRegistration) {
 
     fun bookRestaurantTableForUser(restaurantName: String,seats: String,address: String,date : String) : Boolean{
         return bookATable(user,restaurantName,seats,address,date);
+    }
+
+
+    fun customersAllBookings(){
+        return customersBooking(user);
     }
 
 }

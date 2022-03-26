@@ -85,8 +85,9 @@ class Authentication(){
         val signup = Signup(username,contactType,password,email);
         val isValidated = signup.validateSignUpCredentials();
 
-        val isRegistered : Boolean = signup.isRegistered();
-
+        var isRegistered : Boolean = false;
+        if(isValidated)
+            isRegistered = signup.isRegistered()
 
         if (isValidated && isRegistered)
         {

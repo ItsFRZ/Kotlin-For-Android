@@ -19,14 +19,14 @@ class CustomerUserInterface (private var user: UserRegistration){
             run()
     }
 
-
     private fun run(){
         println("Press 1 to List Restaurant")
         println("Press 2 to Search Restaurant")
         println("Press 3 to Book a Table")
-        println("Press 4 to Cancel Existing Booking")
-        println("Press 5 to Logout")
-        println("Press 6 to Exit")
+        println("Press 4 to See all bookings")
+        println("Press 5 to Cancel Existing Booking")
+        println("Press 6 to Logout")
+        println("Press 7 to Exit")
         try {
             val choice = readLine()?.toInt() ?: 0
             choiceMaker(choice);
@@ -37,7 +37,6 @@ class CustomerUserInterface (private var user: UserRegistration){
 
 
     }
-
 
     private fun choiceMaker(choice: Int) {
         when(choice){
@@ -52,12 +51,15 @@ class CustomerUserInterface (private var user: UserRegistration){
                 bookATable();
             }
             4->{
-
+                allBookingsInfo();
             }
             5->{
-                logoutCustomer();
+
             }
             6->{
+                logoutCustomer();
+            }
+            7->{
                 exitProcess(1);
             }
 
@@ -65,6 +67,10 @@ class CustomerUserInterface (private var user: UserRegistration){
                 run()
             }
         }
+    }
+
+    private fun allBookingsInfo() {
+        customerController.customersAllBookings();
     }
 
     private fun logoutCustomer() {
