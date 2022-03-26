@@ -54,8 +54,8 @@ fun getBookingHistoryForAdmin(contactType : String){
 
 }
 
-fun checkCancellationStats(booking: Booking): Byte {
-    if(!booking.bookedDate.equals("") && !booking.cancelledDate.equals(""))
+fun checkCancellationStats(booking: Booking): Int {
+    if(!booking.bookedDate.equals("false") && !booking.cancelledDate.equals("false"))
         return 1
     else
         return 0
@@ -63,7 +63,7 @@ fun checkCancellationStats(booking: Booking): Byte {
 
 fun checkBookingStats(booking: Booking): Int {
 
-    if(!booking.bookedDate.equals("") && booking.cancelledDate.equals(""))
+    if(!booking.bookedDate.equals("false") && booking.cancelledDate.equals("false"))
         return 1
     else
         return 0
