@@ -14,8 +14,10 @@ fun main() {
             println(age ?: 0)
             println(name)
 
-        }catch(e : UninitializedPropertyAccessException){
+        } catch(e : UninitializedPropertyAccessException){
             println("lateinint property is not initialized")
+        }catch (e : Exception){
+
         }
     }
 

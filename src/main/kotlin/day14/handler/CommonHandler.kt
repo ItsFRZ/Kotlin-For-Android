@@ -18,6 +18,8 @@ const val BOOKING =  "$HOME/Bookings.json"
 
 // Database
 var RESTAURANT_DB = ArrayList<Restaurant>();
+val varOne = arrayListOf(12,"Faraz",12.3F)
+
 var USER_DB = ArrayList<HashMap<String,String>>();
 var BOOKING_DB = ArrayList<Booking>();
 

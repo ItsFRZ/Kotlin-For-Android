@@ -19,39 +19,52 @@ class Operations{
 
 }
 
-fun main(){
+//fun main(){
+//
+//    var result : Int = 0
+//
+//    val operations = Operations()
+//    operations.multiplyAll(arrayOf(1,2,3,4,5,6)){ arr ->
+//        var sum = 1
+//        for(i in arr)
+//            sum *= i
+//        result = sum
+//        result
+//    }
+//
+//    val action : (Int,Int) -> Int = {
+//        no1,no2 ->
+//        no1+no2
+//    }
+//    operations.add(12,12,action)
+//
+//
+//    println("$result")
+//
+//
+//    val utilityMethod = Utility()
+//    utilityMethod.reversed(
+//        "Faraz",
+//        {
+//            it.reversed()
+//        },
+//    )
+//
+//}
 
-    var result : Int = 0
 
-    val operations = Operations()
-    operations.multiplyAll(arrayOf(1,2,3,4,5,6)){ arr ->
-        var sum = 1
-        for(i in arr)
-            sum *= i
-        result = sum
-        result
-    }
-
-    val action : (Int,Int) -> Int = {
-        no1,no2 ->
-        no1+no2
-    }
-    operations.add(12,12,action)
+fun main() {
 
 
-    println("$result")
+    val data : String? = null
+    val copyData : String = data?.trim() ?: ""
 
 
-    val utilityMethod = Utility()
-    utilityMethod.reversed(
-        "Faraz",
-        {
-            it.reversed()
-        },
-    )
+
+
+
 
 }
-
 
 class Utility{
 

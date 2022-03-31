@@ -5,10 +5,11 @@ class NameTooShortException(message : String) : Exception(message)
 
 fun parseMovieName(movie : String) : String{
      if(movie.length > 3)
-         return movie.toString().trim();
+         return movie.trim();
     try {
         throw NameTooShortException("Movie name is too short")
-    }catch(e : NameTooShortException)
+    }
+    catch(e : Exception)
     {
         return e.message.toString()
     }finally {
