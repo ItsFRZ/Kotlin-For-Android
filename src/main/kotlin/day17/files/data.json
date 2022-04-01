@@ -1,0 +1,57 @@
+[
+  {
+    "contactId": "1",
+    "noOfTables": "3",
+    "restaurantAddress": "Nagpur",
+    "restaurantName": "Robin's Family Restaurant",
+    "restaurantType": "FamilyStyle",
+    "tables": [
+      {
+        "bookedBy": "NA",
+        "bookedDate": "NA",
+        "isBooked": "false",
+        "seats": "4",
+        "tableId": "1"
+      },
+      {
+        "bookedBy": "NA",
+        "bookedDate": "NA",
+        "isBooked": "false",
+        "seats": "5",
+        "tableId": "2"
+      },
+      {
+        "bookedBy": "NA",
+        "bookedDate": "NA",
+        "isBooked": "false",
+        "seats": "6",
+        "tableId": "3"
+      }
+    ],
+    "tablesBooked": "0"
+  },
+  {
+    "contactId": "1",
+    "noOfTables": "2",
+    "restaurantAddress": "Nagpur",
+    "restaurantName": "Rob Chinese Restaurant",
+    "restaurantType": "CasualDining",
+    "tables": [
+      {
+        "bookedBy": "Faraz",
+        "bookedDate": "2022/03/27",
+        "isBooked": "true",
+        "seats": "3",
+        "tableId": "1"
+      },
+      {
+        "bookedBy": "NA",
+        "bookedDate": "NA",
+        "isBooked": "false",
+        "seats": "4",
+        "tableId": "2"
+      }
+    ],
+    "tablesBooked": "1"
+  }
+]
