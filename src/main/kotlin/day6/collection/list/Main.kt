@@ -4,7 +4,9 @@ package day6.collection.list
 fun main() {
 
 
-    var bikes = listOf("Apache","Pulsar","FZ")
+    var bikes = listOf("Apache","Pulsar","FZ",12,12.3F)
+
+
 
     for(i in bikes.indices){
         println(bikes[i])

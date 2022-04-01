@@ -2,7 +2,7 @@ package day18.generics
 
 class Stack<T>(private val capacity : Int) {
 
-    private var stack : ArrayList<T> = ArrayList<T>(capacity)
+    private val stack : ArrayList<T> = ArrayList<T>(capacity)
 
     fun push(item : T)
     {
