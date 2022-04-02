@@ -29,7 +29,7 @@
     },
     {
         "contactId": "5",
-        "contactType": "Customer",
+        "contactType": "Seller",
         "email": "faisal@gmail.com",
         "password": "faisal1234",
         "username": "Faisal"

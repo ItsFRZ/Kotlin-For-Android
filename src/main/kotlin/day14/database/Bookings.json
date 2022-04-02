@@ -14,5 +14,13 @@
         "sellerId": "2",
         "userId": "7",
         "username": "Samson"
+    },
+    {
+        "bookedDate": "2022/04/04",
+        "cancelledDate": "false",
+        "restaurantName": "Faisal's Dining",
+        "sellerId": "5",
+        "userId": "1",
+        "username": "Faraz"
     }
 ]

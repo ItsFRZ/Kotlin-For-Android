@@ -1,31 +1,102 @@
-[{
-    "contactId": "2",
-    "noOfTables": "3",
-    "restaurantAddress": "Nagpur",
-    "restaurantName": "Robin's Family Restaurant",
-    "restaurantType": "FamilyStyle",
-    "tables": [
-        {
-            "bookedBy": "Samson",
-            "bookedDate": "2022/03/28",
-            "isBooked": "true",
-            "seats": "4",
-            "tableId": "1"
-        },
-        {
-            "bookedBy": "NA",
-            "bookedDate": "NA",
-            "isBooked": "false",
-            "seats": "5",
-            "tableId": "2"
-        },
-        {
-            "bookedBy": "NA",
-            "bookedDate": "NA",
-            "isBooked": "false",
-            "seats": "6",
-            "tableId": "3"
-        }
-    ],
-    "tablesBooked": "2"
-}]
+[
+    {
+        "contactId": "2",
+        "noOfTables": "3",
+        "restaurantAddress": "Sadar Bazaar, Nagpur",
+        "restaurantName": "Robin's Family Restaurant",
+        "restaurantType": "FamilyStyle",
+        "tables": [
+            {
+                "bookedBy": "Samson",
+                "bookedDate": "2022/03/28",
+                "isBooked": "true",
+                "seats": "4",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "5",
+                "tableId": "2"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "6",
+                "tableId": "3"
+            }
+        ],
+        "tablesBooked": "2"
+    },
+    {
+        "contactId": "5",
+        "noOfTables": "4",
+        "restaurantAddress": "Ravi Nagar, Nagpur, Maharashtra",
+        "restaurantName": "Faisal's Dining",
+        "restaurantType": "FineDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "Faraz",
+                "bookedDate": "2022/04/04",
+                "isBooked": "true",
+                "seats": "4",
+                "tableId": "2"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "5",
+                "tableId": "3"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "6",
+                "tableId": "4"
+            }
+        ],
+        "tablesBooked": "1"
+    },
+    {
+        "contactId": "5",
+        "noOfTables": "3",
+        "restaurantAddress": "Shivaji Complex, Rajiv Nagar, Mumbai, 412021",
+        "restaurantName": "Faisal's Dining",
+        "restaurantType": "FineDining",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "5",
+                "tableId": "2"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "6",
+                "tableId": "3"
+            }
+        ],
+        "tablesBooked": "0"
+    }
+]

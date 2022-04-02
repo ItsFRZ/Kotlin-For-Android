@@ -99,20 +99,9 @@ class CustomerUserInterface (private var user: UserRegistration){
         val address : String = readLine().toString();
         val ispreferredRestaurant :Boolean = customerController.fetchedPreferredTable(seats.toString(),address);
 
+
         if(ispreferredRestaurant){
-
-            println("Please enter the name of restaurant you want to book from the given list")
-            val rname = readLine().toString()
-            println("Please enter the date (YYYY/MM/DD) example(2022/12/23)")
-            val date = readLine().toString();
-
-            val isBooked = customerController.bookRestaurantTableForUser(rname,seats.toString(),address,date);
-            if(isBooked){
-                println("${user.username} your booking is done")
-            }else{
-                println("Something went wrong :(")
-                println("Either someone already booked your desired restaurant or internal problem's occured")
-            }
+           bookTableFromList();
 
         }else {
             println("Either you not entered your preferences OR Table is not available")
@@ -124,6 +113,48 @@ class CustomerUserInterface (private var user: UserRegistration){
         bookATable()
     }
 }
+
+    private fun bookTableFromList() {
+
+        try{
+
+            println("Please enter the number from above given list (Input should be in Integer)")
+            val restaurantNo = readLine().toString().toInt()
+            if (restaurantNo < 0){
+                println("Improper input")
+                bookTableFromList()
+                return;
+            }
+
+            println("Please enter Table Id to book your desired table (Input should be in Integer)")
+            val tableId = readLine().toString().toInt()
+
+            if (tableId < 0 && tableId > 20){
+                println("Improper input")
+                bookTableFromList()
+                return;
+            }
+
+
+
+            println("Please enter the date (YYYY/MM/DD) example(2022/12/23)")
+            val date = readLine().toString();
+
+            val isBooked = customerController.bookRestaurantTableForUser(restaurantNo,tableId,date);
+            if(isBooked){
+                println("${user.username} your booking is done")
+            }else{
+                println("Something went wrong :(")
+                println("Either someone already booked your desired restaurant or internal problem's occured")
+            }
+
+        }catch (e : Exception){
+            println("Please enter proper inputs")
+            bookTableFromList();
+        }
+
+
+    }
 
     fun searchRestaurant() {
         println("Enter restaurant name ?")

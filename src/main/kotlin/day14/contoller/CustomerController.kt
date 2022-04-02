@@ -20,8 +20,8 @@ class CustomerController(private var user : UserRegistration) {
         return getPreferredRestaurantToCustomerByLocation(seats,address)
     }
 
-    fun bookRestaurantTableForUser(restaurantName: String,seats: String,address: String,date : String) : Boolean{
-        return bookATable(user,restaurantName,seats,address,date);
+    fun bookRestaurantTableForUser(restaurantNo: Int,tableId: Int,date : String) : Boolean{
+        return bookATable(user,restaurantNo,tableId,date);
     }
 
 
