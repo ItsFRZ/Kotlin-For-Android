@@ -1,26 +1,8 @@
-[
-    {
-        "bookedDate": "2022/03/27",
-        "cancelledDate": "2022/03/26",
-        "restaurantName": "Robin's Family Restaurant",
-        "sellerId": "2",
-        "userId": "1",
-        "username": "Faraz"
-    },
-    {
-        "bookedDate": "2022/03/28",
-        "cancelledDate": "false",
-        "restaurantName": "Robin's Family Restaurant",
-        "sellerId": "2",
-        "userId": "7",
-        "username": "Samson"
-    },
-    {
-        "bookedDate": "2022/04/04",
-        "cancelledDate": "false",
-        "restaurantName": "Faisal's Dining",
-        "sellerId": "5",
-        "userId": "1",
-        "username": "Faraz"
-    }
-]
+[{
+    "bookedDate": "2022/04/06",
+    "cancelledDate": "false",
+    "restaurantName": "Faisal's Dining",
+    "sellerId": "366495594",
+    "userId": "366527894",
+    "username": "Faraz"
+}]

@@ -1,37 +1,6 @@
 [
     {
-        "contactId": "2",
-        "noOfTables": "3",
-        "restaurantAddress": "Sadar Bazaar, Nagpur",
-        "restaurantName": "Robin's Family Restaurant",
-        "restaurantType": "FamilyStyle",
-        "tables": [
-            {
-                "bookedBy": "Samson",
-                "bookedDate": "2022/03/28",
-                "isBooked": "true",
-                "seats": "4",
-                "tableId": "1"
-            },
-            {
-                "bookedBy": "NA",
-                "bookedDate": "NA",
-                "isBooked": "false",
-                "seats": "5",
-                "tableId": "2"
-            },
-            {
-                "bookedBy": "NA",
-                "bookedDate": "NA",
-                "isBooked": "false",
-                "seats": "6",
-                "tableId": "3"
-            }
-        ],
-        "tablesBooked": "2"
-    },
-    {
-        "contactId": "5",
+        "contactId": "366495594",
         "noOfTables": "4",
         "restaurantAddress": "Ravi Nagar, Nagpur, Maharashtra",
         "restaurantName": "Faisal's Dining",
@@ -46,7 +15,7 @@
             },
             {
                 "bookedBy": "Faraz",
-                "bookedDate": "2022/04/04",
+                "bookedDate": "2022/04/06",
                 "isBooked": "true",
                 "seats": "4",
                 "tableId": "2"
@@ -69,9 +38,9 @@
         "tablesBooked": "1"
     },
     {
-        "contactId": "5",
+        "contactId": "366495594",
         "noOfTables": "3",
-        "restaurantAddress": "Shivaji Complex, Rajiv Nagar, Mumbai, 412021",
+        "restaurantAddress": "Alex Metropolitan Area, Mumbai, Maharashtra",
         "restaurantName": "Faisal's Dining",
         "restaurantType": "FineDining",
         "tables": [
@@ -79,22 +48,60 @@
                 "bookedBy": "NA",
                 "bookedDate": "NA",
                 "isBooked": "false",
-                "seats": "4",
+                "seats": "3",
                 "tableId": "1"
             },
             {
                 "bookedBy": "NA",
                 "bookedDate": "NA",
                 "isBooked": "false",
-                "seats": "5",
+                "seats": "4",
                 "tableId": "2"
             },
             {
                 "bookedBy": "NA",
                 "bookedDate": "NA",
                 "isBooked": "false",
-                "seats": "6",
+                "seats": "5",
                 "tableId": "3"
+            }
+        ],
+        "tablesBooked": "0"
+    },
+    {
+        "contactId": "366510314",
+        "noOfTables": "4",
+        "restaurantAddress": "Sadar Bazaar, Nagpur, Maharashtra",
+        "restaurantName": "Robin's Family Restaurant",
+        "restaurantType": "FamilyStyle",
+        "tables": [
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "3",
+                "tableId": "1"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "4",
+                "tableId": "2"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "5",
+                "tableId": "3"
+            },
+            {
+                "bookedBy": "NA",
+                "bookedDate": "NA",
+                "isBooked": "false",
+                "seats": "6",
+                "tableId": "4"
             }
         ],
         "tablesBooked": "0"

@@ -106,7 +106,7 @@ fun gracefullyDisplayRestaurantPreferrence(res: Restaurant, seats: String,choose
 fun bookATable(user : UserRegistration,restaurantNo: Int,tableId: Int,date : String) : Boolean{
     // loading all restaurants
     LoadRestaurantData()
-    println(RESTAURANT_DB)
+
 
     // User Restaurant
     val userRestaurant : Restaurant = usersPreferredRestaurantList.get(restaurantNo)
@@ -124,10 +124,9 @@ fun bookATable(user : UserRegistration,restaurantNo: Int,tableId: Int,date : Str
 
             isDone = true;
         }
-        println(RESTAURANT_DB[idx])
+
     }
 
-    println(RESTAURANT_DB)
 
 
 

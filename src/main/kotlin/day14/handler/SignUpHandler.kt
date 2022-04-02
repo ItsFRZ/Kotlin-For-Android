@@ -5,6 +5,7 @@ import day14.model.registration.UserRegistration
 import org.json.JSONArray
 import org.json.JSONObject
 import java.io.File
+import java.util.*
 
 
 fun registerHandler(username:String, password : String,contactType : String,email : String) : Boolean {
@@ -14,10 +15,23 @@ fun registerHandler(username:String, password : String,contactType : String,emai
 
 
 fun generateUniqueContactId() : String{
-    return (LoadData().getUserList().size+1).toString()
+    return getSecret();
+}
+
+fun getSecret(): String {
+
+    val size : Int = (LoadData().getUserList().size+1)
+    val currentMilli = System.currentTimeMillis()
+    val hour = Date().hours
+    val randomNo = getRandom(1,1000);
+
+    return "${Math.abs((currentMilli.toInt() + size)+(randomNo+hour))}"
 }
 
 
+fun getRandom(min : Int,max : Int): Int{
+    return (Math.random() * (max-min) + min).toInt()
+}
 
 
 

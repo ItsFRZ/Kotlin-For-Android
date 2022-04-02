@@ -12,10 +12,13 @@ fun main() {
 //    println(currentDate)
 
 
-    for(i in 1..10){
-        val secret  : Int = getRandom(1,1000000)
-        println("${System.currentTimeMillis()} -- "+secret)
-    }
+//    for(i in 1..10){
+//        val secret  : Int = getRandom(1,1000000)
+//        println("${System.currentTimeMillis()} -- "+secret)
+//    }
+
+
+
 }
 
 fun getRandom(min : Int,max : Int): Int{
