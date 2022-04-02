@@ -1,8 +1,18 @@
-[{
-    "bookedDate": "2022/04/06",
-    "cancelledDate": "false",
-    "restaurantName": "Faisal's Dining",
-    "sellerId": "366495594",
-    "userId": "366527894",
-    "username": "Faraz"
-}]
+[
+    {
+        "bookedDate": "2022/04/06",
+        "cancelledDate": "false",
+        "restaurantName": "Faisal's Dining",
+        "sellerId": "366495594",
+        "userId": "366527894",
+        "username": "Faraz"
+    },
+    {
+        "bookedDate": "2022/04/07",
+        "cancelledDate": "false",
+        "restaurantName": "Faisal's Dining",
+        "sellerId": "366495594",
+        "userId": "366527894",
+        "username": "Faraz"
+    }
+]
