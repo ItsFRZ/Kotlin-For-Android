@@ -58,18 +58,24 @@ open class Validation {
 
         if(validateEmail(email))
             isEmailCorrect = true
-        else
+        else {
             emailHelp()
+            return false;
+        }
 
         if(validateUsername(username))
             isUserNameCorrect = true
-        else
+        else {
             usernameHelp()
+            return false
+        }
 
         if(validatePassword(password))
             isPasswordCorrect = true
-        else
+        else {
             passwordHelp()
+            return false
+        }
 
         return isEmailCorrect && isPasswordCorrect && isUserNameCorrect
     }

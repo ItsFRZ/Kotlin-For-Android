@@ -2,6 +2,7 @@ package day14.userinterface
 
 import day14.contoller.Login
 import day14.contoller.Signup
+import day14.contoller.ValidateRegistration
 
 
 import day14.model.registration.*
@@ -70,26 +71,49 @@ class Authentication(){
 
     }
 
+
     fun signupUser() {
+
+        val validateAll = ValidateRegistration();
+
         println("Create your Username")
         val username  = readLine().toString()
+        if (!validateAll.usernameValidate(username))
+        {
+            validateAll.invalidUsername()
+            signupUser()
+            return;
+        }
+
+
+
         println("Enter your Email")
         val email  = readLine().toString()
+        if (!validateAll.emailValidate(email))
+        {
+            validateAll.invalidEmail()
+            signupUser()
+            return;
+        }
+
         println("Create your Password")
         val password  = readLine().toString()
-        val contactType :String = setContactMode(username)
+
+        if (!validateAll.passwordValidate(password)) {
+            validateAll.invalidPassword()
+            signupUser()
+            return;
+        }
+
+        val contactType : String = setContactMode(username)
 
 
         // validation
 
         val signup = Signup(username,contactType,password,email);
-        val isValidated = signup.validateSignUpCredentials();
+        val isRegistered = signup.isRegistered()
 
-        var isRegistered : Boolean = false;
-        if(isValidated)
-            isRegistered = signup.isRegistered()
-
-        if (isValidated && isRegistered)
+        if (isRegistered)
         {
             println("$username your registration completed !")
         }else{

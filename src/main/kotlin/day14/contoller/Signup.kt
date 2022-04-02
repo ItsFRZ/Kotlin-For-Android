@@ -10,16 +10,40 @@ import day14.model.registration.UserRegistration
 class Signup(val username: String,val contactType: String,val password: String,val email: String){
 
 
-    private var validation = Validation()
-
-
-
     fun isRegistered() : Boolean{
         return registerUser(username,contactType,password,email);
     }
 
-    fun validateSignUpCredentials() : Boolean{
-        return validation.validateSignUp(username,contactType,email,password);
+
+
+}
+
+
+class ValidateRegistration(){
+    private var validation = Validation()
+
+    fun usernameValidate(username : String) : Boolean{
+        return validation.validateUsername(username)
+    }
+
+    fun invalidUsername(){
+        validation.usernameHelp()
+    }
+
+    fun emailValidate(email: String) : Boolean{
+        return validation.validateEmail(email)
+    }
+
+    fun invalidEmail(){
+        validation.emailHelp()
+    }
+
+    fun passwordValidate(password: String) : Boolean{
+        return validation.validatePassword(password)
+    }
+
+    fun invalidPassword(){
+        validation.passwordHelp()
     }
 
 }

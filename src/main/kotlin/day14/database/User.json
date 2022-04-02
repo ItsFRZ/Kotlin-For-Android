@@ -26,5 +26,12 @@
         "email": "samir@gmail.com",
         "password": "samir1234",
         "username": "Samir"
+    },
+    {
+        "contactId": "5",
+        "contactType": "Customer",
+        "email": "faisal@gmail.com",
+        "password": "faisal1234",
+        "username": "Faisal"
     }
 ]
