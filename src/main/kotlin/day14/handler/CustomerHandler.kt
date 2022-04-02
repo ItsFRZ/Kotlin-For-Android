@@ -11,7 +11,10 @@ import org.json.JSONObject
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
+
+val usersPreferredRestaurantList : ArrayList<Restaurant> = ArrayList<Restaurant>();
 
 fun getAllRestaurantInfoForCustomer(contactId : String){
 
@@ -37,17 +40,26 @@ fun getPreferredRestaurantToCustomer(contactId: String,restaurantName : String,r
 
 }
 
+// Current Working
 fun getPreferredRestaurantToCustomerByLocation(seats : String,address : String) : Boolean{
 
     var availabilityFlag : Boolean = false
 
     LoadRestaurantData();
+    usersPreferredRestaurantList.clear();
+
+    var chooseRestaurantIdx : Int = 0;
 
     for (i in 0 until RESTAURANT_DB.size){
         val res = RESTAURANT_DB.get(i)
         if(res.restaurantAddress.contains(address)) {
-            if(gracefullyDisplayRestaurantPreferrence(res, seats))
+
+            if(gracefullyDisplayRestaurantPreferrence(res, seats,chooseRestaurantIdx)) {
                 availabilityFlag = true
+
+                usersPreferredRestaurantList.add(res);
+                chooseRestaurantIdx += 1;
+            }
         }
 
     }
@@ -55,73 +67,74 @@ fun getPreferredRestaurantToCustomerByLocation(seats : String,address : String) 
     return availabilityFlag;
 }
 
-fun gracefullyDisplayRestaurantPreferrence(res: Restaurant, seats: String) : Boolean{
+fun gracefullyDisplayRestaurantPreferrence(res: Restaurant, seats: String,chooseRestaurantIdx : Int) : Boolean{
     var tableCount = 0;
-    println("---------------------------***${res.restaurantName}***-----------------------------------")
-    println("Restaurant Address :- ${res.restaurantAddress} , Restaurant Type :- ${res.restaurantType}")
+
+    var specificTableAvailability : Boolean = false
+
+    println("\nPress ${chooseRestaurantIdx} to select---------------------------***${res.restaurantName}***-----------------------------------\n")
+    println("Restaurant Address :- ${res.restaurantAddress}")
+    println("Restaurant Type :- ${res.restaurantType}\n")
+    var tableIdx = 1;
     for(table in res.tables){
-        if(table.isBooked.equals("false") && table.seats > seats)
+        if(table.seats.equals(seats) && table.isBooked.equals("false"))
+            specificTableAvailability = true;
+
+        if(table.isBooked.equals("false") && table.seats >= seats)
         {
             println("Table id ${table.tableId} is available with seats ${table.seats}")
             tableCount += 1;
+            tableIdx +=1;
         }
 
     }
 
-    if(tableCount > 0)
-        println("$seats sitter table is Available")
+    if(specificTableAvailability)
+        println("$seats seater table is Available")
     else
     {
-        println("$seats seat table is not available this restaurant")
+        println("$seats seater table is not available in this restaurant")
     }
 
-    println("------------------------------------------~~~END~~~------------------------------------------")
+    println("\n------------------------------------------~~~END~~~------------------------------------------\n")
 
     if(tableCount > 0)
         return true
     return false
 }
 
-fun bookATable(user : UserRegistration,restaurantName: String,seats: String,address: String,date : String) : Boolean{
+fun bookATable(user : UserRegistration,restaurantNo: Int,tableId: Int,date : String) : Boolean{
     // loading all restaurants
     LoadRestaurantData()
 
+
+    // User Restaurant
+    val userRestaurant : Restaurant = usersPreferredRestaurantList.get(restaurantNo)
+    // User Table
+    val updatedRestaurant : Restaurant = updateRestaurant(userRestaurant,tableId,user,date);
+
     var isDone = false
+    // Remove Restaurant
 
-    for(restaurant in RESTAURANT_DB){
-        if(restaurant.restaurantAddress.contains(address) && restaurant.restaurantName.contains(restaurantName)){
+    for(idx in 0 until RESTAURANT_DB.size){
+        val restaurantName = updatedRestaurant.restaurantName;
+        val restaurantAddress = updatedRestaurant.restaurantAddress;
+        if (RESTAURANT_DB[idx].restaurantName.equals(restaurantName) && RESTAURANT_DB[idx].restaurantAddress.equals(restaurantAddress)){
+            RESTAURANT_DB.set(idx,updatedRestaurant)
 
-
-
-            var fetchedTableId : String= getTableId(restaurant,seats)
-            if(!fetchedTableId.isEmpty())
-            {
-                try{
-
-                    isDone = true;
-
-
-                    val oldTable: Table = getTableFromFetchedId(restaurant,fetchedTableId)
-                    if(!oldTable.tableId.isEmpty()){
-
-                        val table = modifyTable(fetchedTableId,oldTable,user,date)
-                        val removedIdx = removeTableFromRestaurant(restaurant,fetchedTableId);
-                        restaurant.tables.add(removedIdx,table)
-                        restaurant.tablesBooked = setTablesBookedData(restaurant)
-                        BookingController(user).saveAsBookingHistory(restaurant,date)
-                        break;
-
-                    }
-                }catch (e : Exception){
-                    println(e)
-                }
-            }
-
-
-
-
+            isDone = true;
         }
+
     }
+
+
+
+
+//    modifyTable
+//    removeTableFromRestaurant
+//    setTablesBookedData
+
+
 
 
     if(isDone){
@@ -148,6 +161,7 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
             if(file.exists())
                 file.delete()
 
+            BookingController(user).saveAsBookingHistory(updatedRestaurant,date)
             writeData(SELLER,jsonArray.toString(4))
 
         }
@@ -160,36 +174,75 @@ fun bookATable(user : UserRegistration,restaurantName: String,seats: String,addr
     return false;
 }
 
-fun removeTableFromRestaurant(restaurant: Restaurant, fetchedTableId: String) : Int{
-    var idx = 0
-    for (table in restaurant.tables){
-        if (table.tableId.equals(fetchedTableId))
-        {
-            restaurant.tables.removeAt(idx)
-            return idx;
+
+
+//userRestaurant,tableId,user,date
+
+fun updateRestaurant(userRestaurant: Restaurant, tableId: Int,user: UserRegistration,date: String): Restaurant {
+    val contactId = userRestaurant.contactId;
+    val restaurantName = userRestaurant.restaurantName;
+    val restaurantType = userRestaurant.restaurantType
+    val restaurantAddress = userRestaurant.restaurantAddress
+    val noOfTable = userRestaurant.noOfTables
+    val tablesBooked = (userRestaurant.tablesBooked.toInt()+1).toString()
+    val tables : ArrayList<Table> = listMyTable(userRestaurant.tables,tableId,user,date);
+
+
+    return Restaurant(contactId,restaurantName,restaurantType,restaurantAddress,noOfTable,tablesBooked,tables);
+}
+
+
+//userRestaurant.tables,tableId,user,date
+fun listMyTable(tables: ArrayList<Table>, tableId: Int,user: UserRegistration,date: String): ArrayList<Table> {
+
+    val myTables : ArrayList<Table> = ArrayList<Table>();
+
+    for (table in tables){
+        if(tableId.toString().equals(table.tableId)){
+            table.isBooked = "true"
+            table.bookedDate = date
+            table.bookedBy = user.username
+            myTables.add(table);
+        }else{
+            myTables.add(table);
         }
-        idx+=1;
+
     }
-    return idx;
+
+    return myTables;
 }
 
-fun modifyTable(fetchedTableId: String, oldTable: Table, user: UserRegistration, date: String): Table {
+//fun removeTableFromRestaurant(restaurant: Restaurant, fetchedTableId: String) : Int{
 
-    val table : Table = Table(
-        fetchedTableId,
-        "true",
-        oldTable.seats,
-        date,
-        user.username
-    )
-    return table;
-}
+//    var idx = 0
+//    for (table in restaurant.tables){
+//        if (table.tableId.equals(fetchedTableId))
+//        {
+//            restaurant.tables.removeAt(idx)
+//            return idx;
+//        }
+//        idx+=1;
+//    }
+//    return idx;
+//}
 
-fun setTablesBookedData(restaurant: Restaurant): String {
-    var tablesBooked = restaurant.tablesBooked.toInt()
-    tablesBooked +=1
-    return tablesBooked.toString();
-}
+//fun modifyTable(fetchedTableId: String, oldTable: Table, user: UserRegistration, date: String): Table {
+//
+//    val table : Table = Table(
+//        fetchedTableId,
+//        "true",
+//        oldTable.seats,
+//        date,
+//        user.username
+//    )
+//    return table;
+//}
+
+//fun setTablesBookedData(restaurant: Restaurant): String {
+//    var tablesBooked = restaurant.tablesBooked.toInt()
+//    tablesBooked +=1
+//    return tablesBooked.toString();
+//}
 
 fun getTableFromFetchedId(restaurant: Restaurant, fetchedTableId: String): Table {
     for (table in restaurant.tables){
