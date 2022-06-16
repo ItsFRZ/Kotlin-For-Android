@@ -20,14 +20,15 @@ fun main(){
 
 
 
-    val numbers = arrayOf(1,2,3,4,5,6)
-    val operatedString = numbers.joinToString("-")
-    println(operatedString)
+//    val numbers = arrayOf(1,2,3,4,5,6)
+//    val operatedString = numbers.joinToString("-")
+//    println(operatedString)
+//
+//    var zeros = Array<Number>(100){0}
+//    println(Arrays.toString(zeros))
 
-    var zeros = Array<Number>(100){0}
-    println(Arrays.toString(zeros))
-
-
+    var carName : Array<String> = Array<String>(5){"Lamborghini"}
+    carName.forEach { println(it)}
 
 }
 
